@@ -1,0 +1,2567 @@
+#
+# A fatal error has been detected by the SAP Java Virtual Machine:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000000006c1b8018, pid=6660, tid=5956
+# faulting address (tried to read): 0xffffffffffffffff
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_131) (build 8.1.030)
+# Java VM: SAP Java Server VM (8.1.030 25.51-b10 Apr 26 2017 16:09:52 - 81_REL - optU - windows amd64 - 6 - bas2:288514 (mixed mode) compressed oops)
+# Problematic frame:
+# V  [jvm.dll+0x138018]  Method::checked_resolve_jmethod_id+0x18 (sp=0x00000000194df1a0) (pc=0x000000006c1b8018)
+#
+# No minidump will be written (Minidumps are not enabled)
+#
+# If you would like to submit a bug report, please visit:
+#   https://support.sap.com/incident
+# Please save the hs_err file(s) and the written dmp file for further error analysis
+# See SAP note 1500116 for further information on collecting core dumps after SAPJVM crashes
+#
+
+Date: 2017-09-16 Time: 20:18:42
+Process did run for 23 minutes, 37 seconds on PHXN00640420A .
+
+---------------  B u i l d   I n f o ---------------
+
+compile date/time:     Apr 26 2017 16:13:08
+sapjvm release:        8
+sap_platform:          NTAMD64
+platform:              windows
+arch:                  amd64
+codeline:              81_REL
+hs bld trgt:           "product"
+flags:                 !DEBUG, !ASSERT, PRODUCT 
+build user:            "makefact"
+last change:           288514
+build id:              8.1.030
+_WIN32 
+_WIN64 
+_M_AMD64 
+Compiler (_MSC_VER): 1600 
+C-Runtime: multithreaded dynamic release 
+
+
+---------------  N a t i v e   C r a s h i n f o  ---------------
+
+Stack:
+
+    SP                 PC                 RetPC              Symbol
+ 0: 0x00000000194df1a0 0x000000006c1b8018 0x000000006c536227 jvm::Method::checked_resolve_jmethod_id + 24 bytes  in method.cpp:2220
+ 1: 0x00000000194df1d0 0x000000006c536227 0x00007ffd02be4495 jvm::jvmti_IsMethodSynthetic + 375 bytes  in jvmtienter.cpp:4674
+ 2: 0x00000000194df230 0x00007ffd02be4495 0x00007ffd02bb5876 jdwp::isMethodSynthetic + 101 bytes  in util.c:1437
+ 3: 0x00000000194df260 0x00007ffd02bb5876 0x00007ffd02bb5a44 jdwp::writeMethodInfo + 54 bytes  in referencetypeimpl.c:147
+ 4: 0x00000000194df2b0 0x00007ffd02bb5a44 0x00007ffd02bc0f59 jdwp::methods1 + 244 bytes  in referencetypeimpl.c:205
+ 5: 0x00000000194df300 0x00007ffd02bc0f59 0x00007ffd02be047a jdwp::debugLoop_run + 601 bytes  in debugloop.c:214
+ 6: 0x00000000194df560 0x00007ffd02be047a 0x00007ffd02be06b6 jdwp::connectionInitiated + 154 bytes  in transport.c:428
+ 7: 0x00000000194df590 0x00007ffd02be06b6 0x000000006c23af98 jdwp::attachThread + 70 bytes  in transport.c:744
+ 8: 0x00000000194df5c0 0x000000006c23af98 0x000000006c2d3629 jvm::JvmtiAgentThread::call_start_function + 104 bytes  in jvmtiimpl.cpp:85
+ 9: 0x00000000194df600 0x000000006c2d3629 0x000000006c48910a jvm::JavaThread::thread_main_inner + 201 bytes  in thread.cpp:2826
+10: 0x00000000194df6b0 0x000000006c48910a 0x000000006c4892f3 jvm::call_thread_run_with_SEH + 10 bytes  in os_windows.cpp:731
+11: 0x00000000194df6e0 0x000000006c4892f3 0x000000006e6e1d9f jvm::java_start + 467 bytes  in os_windows.cpp:786
+12: 0x00000000194df880 0x000000006e6e1d9f 0x000000006e6e1e3b MSVCR100::endthreadex + 67 bytes 
+13: 0x00000000194df8b0 0x000000006e6e1e3b 0x00007ffd247d8364 MSVCR100::endthreadex + 223 bytes 
+14: 0x00000000194df8e0 0x00007ffd247d8364 0x00007ffd26067091 KERNEL32::BaseThreadInitThunk + 20 bytes 
+15: 0x00000000194df910 0x00007ffd26067091 0x0000000000000000 ntdll::RtlUserThreadStart + 33 bytes 
+
+ (dbghelp.dll version 4.0)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000016fbc000):  JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm (_running), id=5956 [stack: 0x00000000193e0000,0x00000000194e0000 (1024k)], stack: guarded]
+
+ ExceptionCode: EXCEPTION_ACCESS_VIOLATION, reading address 0xffffffffffffffff
+
+Registers:
+RAX=0x00000000194df201, RBX=0x0000000016fbc000, RCX=0x61003b747865746e, RDX=0x0000000000000000
+RSP=0x00000000194df1a0, RBP=0x61003b747865746e, RSI=0x00000000194df2c8, RDI=0x00000000032b98a0
+R8 =0x0000000016fbc000, R9 =0x61003b747865746e, R10=0x0000000000000000, R11=0x000000001702a80f
+R12=0x00000000036cedc8, R13=0x000000001a10be10, R14=0x000000006c8b4418, R15=0x000000006c9c1980
+RIP=0x000000006c1b8018, EFLAGS=0x0000000000010202
+
+Top of Stack: (sp=0x00000000194df1a0)
+0x00000000194df1a0:   00000000036cedc8 0000000016fbc000
+0x00000000194df1b0:   00000000194df650 000000006c5234d2
+0x00000000194df1c0:   0000000016fbc000 000000006c536227
+0x00000000194df1d0:   0000000016fbc000 0000000016fbc000
+0x00000000194df1e0:   fffffffffffffffe 00007ffd02bd6afd
+0x00000000194df1f0:   fffffffffffffffe 0000000016fbc000
+0x00000000194df200:   0000000016fbc000 0000000000000000
+0x00000000194df210:   0000000000000000 0000000000000000
+0x00000000194df220:   61003b747865746e 00007ffd02be4495
+0x00000000194df230:   00000000194df2c8 0000000000000001
+0x00000000194df240:   0000000000000001 0000000016fbc000
+0x00000000194df250:   61003b747865746e 00007ffd02bb5876
+0x00000000194df260:   00000000194df3a0 0000000001000000
+0x00000000194df270:   000000001a10be10 000000006c8b4418
+0x00000000194df280:   0000000000000001 0000000000000000
+0x00000000194df290:   0000000000000000 0000000000000000
+
+Instructions: (pc=0x000000006c1b8018)
+0x000000006c1b7ff8:   cc cc cc cc cc cc cc cc 48 83 ec 28 4c 8b c9 48
+0x000000006c1b8008:   85 c9 75 07 33 c0 48 83 c4 28 c3 48 89 5c 24 20
+0x000000006c1b8018:   48 8b 19 48 85 db 74 3f 48 8b 43 08 48 8b 48 08
+0x000000006c1b8028:   48 8b 41 18 48 85 c0 74 2e 48 8b 80 90 00 00 00
+
+
+Decoded instructions: (pc=0x000000006c1b8018)
+[Code]
+  0x000000006c1b8018 (+0x00): 488b 1948 | 85db 743f | 488b 4308 | 488b 4808 | 488b 4118 | 4885 c074 | 2e48 8b80 | 9000 0000 
+  0x000000006c1b8038 (+0x20): 4c8b 4038 | 4d85 c074 | 1e33 d248 | 63c2 498d | 0cc0 493b | c974 1cff | c283 fa08 | 7ced 4d8b 
+  0x000000006c1b8058 (+0x40): 4048 4d85 | c075 e233 | c048 8b5c | 2420 4883 | c428 c348 | 85db 74ef | 4883 fb37 | 74e9 488b 
+  0x000000006c1b8078 (+0x60): 1348 8bcb | ff52 1084 | c074 dc48 | 8bc3 488b | 5c24 2048 | 83c4 28c3 | 488b 4138 | 4885 c074 
+[End]
+
+
+Stack: [0x00000000193e0000 <- 0x00000000194e0000],  sp=0x00000000194df1a0,  free space=1020k Guard pages: used, yellow zone enabled.red zone:     [0x00000000193e0000,0x00000000193e1000]
+yellow zone:  [0x00000000193e1000,0x00000000193e4000]
+usable stack: [0x00000000193e1000,0x00000000194e0000]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x138018]  Method::checked_resolve_jmethod_id+0x18
+
+
+Current WatcherThread Task:
+none
+
+
+---------------  P R O C E S S  ---------------
+
+Number of Threads: 15
+Number of Non-Daemon Threads: 2
+
+Java Threads: ( => current thread )
+  0x0000000019ff2000 JavaThread "ReaderThread" [_thread_in_native (_running), id=13528 [stack: 0x000000001a5e0000,0x000000001a6e0000 (1024k)], stack: guarded]
+  0x0000000017066800 JavaThread "Service Thread" daemon [_thread_blocked (_running), id=6592 [stack: 0x0000000019ae0000,0x0000000019be0000 (1024k)], stack: guarded]
+  0x000000001705a000 JavaThread "Control Handler" daemon [_thread_blocked (_running), id=14204 [stack: 0x00000000199e0000,0x0000000019ae0000 (1024k)], stack: guarded]
+  0x0000000017043800 JavaThread "C1 CompilerThread2" daemon [_thread_blocked (_running), id=12120 [stack: 0x00000000198e0000,0x00000000199e0000 (1024k)], stack: guarded]
+  0x0000000016fd8000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked (_running), id=10492 [stack: 0x00000000197e0000,0x00000000198e0000 (1024k)], stack: guarded]
+  0x0000000016fd6800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked (_running), id=11864 [stack: 0x00000000196e0000,0x00000000197e0000 (1024k)], stack: guarded]
+  0x0000000016fcb000 JavaThread "JDWP Command Reader" daemon [_thread_in_native (_running), id=4220 [stack: 0x00000000195e0000,0x00000000196e0000 (1024k)], stack: guarded]
+=>0x0000000016fbc000 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_in_vm (_running), id=5956 [stack: 0x00000000193e0000,0x00000000194e0000 (1024k)], stack: guarded]
+  0x0000000016fb7000 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked (_running), id=9968 [stack: 0x0000000018ca0000,0x0000000018da0000 (1024k)], stack: guarded]
+  0x0000000016f9c800 JavaThread "Server: sap_jvm_profiling_server_6660" daemon [_thread_in_native (_running), id=11928 [stack: 0x0000000018990000,0x0000000018a90000 (1024k)], stack: guarded]
+  0x0000000016f97800 JavaThread "Attach Listener" daemon [_thread_blocked (_running), id=11876 [stack: 0x0000000018890000,0x0000000018990000 (1024k)], stack: guarded]
+  0x0000000016f8b800 JavaThread "Signal Dispatcher" daemon [_thread_blocked (_running), id=2136 [stack: 0x0000000018790000,0x0000000018890000 (1024k)], stack: guarded]
+  0x0000000016f16800 JavaThread "Finalizer" daemon [_thread_blocked (_running), id=15728 [stack: 0x00000000185a0000,0x00000000186a0000 (1024k)], stack: guarded]
+  0x0000000016f11800 JavaThread "Reference Handler" daemon [_thread_blocked (_running), id=1136 [stack: 0x00000000184a0000,0x00000000185a0000 (1024k)], stack: guarded]
+  0x00000000032bd000 JavaThread "main" [_thread_blocked (_running), id=13832 [stack: 0x00000000030b0000,0x00000000031b0000 (1024k)], stack: guarded]
+
+GC Threads:
+  0x00000000032fb800 GCTaskThread GC task thread#0 (ParallelGC) [stack: 0x0000000013ce0000,0x0000000013de0000 (1024k)] [id=13460]
+  0x00000000032fd800 GCTaskThread GC task thread#1 (ParallelGC) [stack: 0x0000000013de0000,0x0000000013ee0000 (1024k)] [id=15668]
+  0x000000000364a800 GCTaskThread GC task thread#2 (ParallelGC) [stack: 0x0000000013ee0000,0x0000000013fe0000 (1024k)] [id=14048]
+  0x000000000364c800 GCTaskThread GC task thread#3 (ParallelGC) [stack: 0x0000000013fe0000,0x00000000140e0000 (1024k)] [id=7244]
+
+Other Threads:
+  0x0000000016f0c000 VMThread VM Thread [stack: 0x00000000183a0000,0x00000000184a0000 (1024k)] [id=10560]
+  0x0000000017075800 WatcherThread [stack: 0x0000000019ce0000,0x0000000019de0000 (1024k)] [id=15264]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      reserved 349184K, committed 163328K, used 4133K [0x00000000eab00000, 0x00000000f4a80000, 0x0000000100000000)
+  eden space 2560K, 58% used [0x00000000eab00000,0x00000000eac797c8,0x00000000ead80000)
+  from space 3072K, 85% used [0x00000000ead80000,0x00000000eb010000,0x00000000eb080000)
+  to   space 79872K, 0% used [0x00000000efc80000,0x00000000efc80000,0x00000000f4a80000)
+ ParOldGen       reserved 699392K, committed 132096K, used 83373K [0x00000000c0000000, 0x00000000c8100000, 0x00000000eab00000)
+  object space 132096K, 63% used [0x00000000c0000000,0x00000000c516b4f8,0x00000000c8100000)
+ Metaspace       used 6088K, capacity 6298K, committed 6400K, reserved 270336K
+  class space    used 648K, capacity 713K, committed 768K, reserved 262144K
+
+Card table byte_map: [0x0000000013ad0000,0x0000000013ce0000] byte_map_base: 0x00000000134d0000
+
+Marking Bits: (ParMarkBitMap*) 0x000000006cdb7b80
+ Begin Bits: [0x00000000140e0000, 0x00000000150e0000)
+ End Bits:   [0x00000000150e0000, 0x00000000160e0000)
+
+
+CodeCache: size=262144Kb used=2092Kb max_used=2092Kb free=260051Kb
+ bounds [0x00000000036d0000, 0x0000000003940000, 0x00000000136d0000]
+ total_blobs=745 nmethods=446 adapters=202
+ compilation: enabled
+
+ unscaled compressed oops enabled, 32-bit oops
+  heap base address:              0x00000000c0000000
+  narrow oop base address:        0x0000000000000000
+  narrow oop shift:               0
+  using implicit null checks:     true
+  narrow klass ptr base address:  0x0000000000000000
+  narrow klass ptr shift:         3
+
+Shared Pool:
+Poolsize             :    0.00 MB
+Total                :    0.00 MB     (Alloc    0.00 MB)
+Special Memory Regions
+ profiling polling page    : 0x0000000002f00000
+ standard polling page     : 0x0000000002f01000
+ memory serialization page : 0x0000000002fe0000
+
+Special VM Objects
+ collected heap       : 0x00000000034e8eb0
+ card table           : 0x00000000034e8ff0
+   1. Region: heap [0x00000000c0000000,0x00000000c8100000), card table [0x0000000013ad0000,0x0000000013b11000)
+   2. Region: heap [0x00000000eab00000,0x00000000f4a80000), card table [0x0000000013c25000,0x0000000013c76000)
+   Guard Region: [0x0000000013cd0000,0x0000000013cd8000)
+ block offset table (old): 0x00000000034e9940
+   covered heap region [0x00000000c0000000,0x00000000c8100000), block offset table [0x0000000003300000,0x0000000003341000)
+ current GC statistic : 0x0000000000000000
+ current CMS statistic: 0x0000000000000000
+ current G1 statistic : 0x0000000000000000
+ MonitoringBoard      : 0x0000000016f1f170
+ HeapManager          : 0x0000000000000000
+
+Dynamic libraries:
+0x00007ff6aafc0000 - 0x00007ff6aaffe000 	C:\HDBSTUDIO_RV\plugins\com.sap.ide.sapjvm.jre.win32.x86_64_81.30.30\jre\bin\javaw.exe
+0x00007ffd26000000 - 0x00007ffd261d2000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffd247d0000 - 0x00007ffd2487c000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffd232b0000 - 0x00007ffd234cd000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffd236b0000 - 0x00007ffd23752000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffd24160000 - 0x00007ffd241fe000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffd25fa0000 - 0x00007ffd25ff9000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffd24030000 - 0x00007ffd24151000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffd244f0000 - 0x00007ffd24655000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffd23570000 - 0x00007ffd2358e000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffd24200000 - 0x00007ffd24234000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffd23130000 - 0x00007ffd232b0000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffd19660000 - 0x00007ffd198da000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.14393.953_none_42151e83c686086b\COMCTL32.dll
+0x00007ffd238a0000 - 0x00007ffd23b68000 	C:\WINDOWS\System32\combase.dll
+0x00007ffd22c90000 - 0x00007ffd22d85000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffd22d90000 - 0x00007ffd22dfa000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffd24880000 - 0x00007ffd248ae000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffd074c0000 - 0x00007ffd07567000 	C:\Program Files\McAfee\Host Intrusion Prevention\HcApi.dll
+0x000000006e160000 - 0x000000006e16c000 	C:\Program Files\McAfee\Host Intrusion Prevention\HcThe.dll
+0x000000006c080000 - 0x000000006ce61000 	C:\HDBSTUDIO_RV\plugins\com.sap.ide.sapjvm.jre.win32.x86_64_81.30.30\jre\bin\server\jvm.dll
+0x00007ffd242e0000 - 0x00007ffd2434a000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffd23760000 - 0x00007ffd23898000 	C:\WINDOWS\System32\ole32.dll
+0x0000000002f20000 - 0x0000000002fdf000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffd234d0000 - 0x00007ffd2356c000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffd248b0000 - 0x00007ffd248b8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffd1add0000 - 0x00007ffd1adf3000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x000000006e6c0000 - 0x000000006e792000 	C:\WINDOWS\SYSTEM32\MSVCR100.dll
+0x00007ffd1b830000 - 0x00007ffd1b83a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffd19d80000 - 0x00007ffd19dab000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ffd22e00000 - 0x00007ffd22e42000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007ffd0b100000 - 0x00007ffd0b292000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffcef330000 - 0x00007ffcef893000 	C:\WINDOWS\SYSTEM32\DBGENG.DLL
+0x00007ffcf3b70000 - 0x00007ffcf3c15000 	C:\WINDOWS\SYSTEM32\dbgmodel.dll
+0x00007ffd22050000 - 0x00007ffd2207b000 	C:\WINDOWS\SYSTEM32\bcrypt.dll
+0x00007ffd1b600000 - 0x00007ffd1b636000 	C:\WINDOWS\SYSTEM32\XmlLite.dll
+0x00007ffd1f320000 - 0x00007ffd1f349000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffd21880000 - 0x00007ffd218b2000 	C:\WINDOWS\SYSTEM32\ntmarta.dll
+0x00007ffd11450000 - 0x00007ffd11461000 	C:\HDBSTUDIO_RV\plugins\com.sap.ide.sapjvm.jre.win32.x86_64_81.30.30\jre\bin\verify.dll
+0x00007ffd07260000 - 0x00007ffd07295000 	C:\HDBSTUDIO_RV\plugins\com.sap.ide.sapjvm.jre.win32.x86_64_81.30.30\jre\bin\java.dll
+0x00007ffd0ef50000 - 0x00007ffd0ef66000 	C:\WINDOWS\system32\napinsp.dll
+0x00007ffd0ef30000 - 0x00007ffd0ef4a000 	C:\WINDOWS\system32\pnrpnsp.dll
+0x00007ffd1e620000 - 0x00007ffd1e638000 	C:\WINDOWS\system32\NLAapi.dll
+0x00007ffd21da0000 - 0x00007ffd21dfc000 	C:\WINDOWS\System32\mswsock.dll
+0x00007ffd21b60000 - 0x00007ffd21c01000 	C:\WINDOWS\SYSTEM32\DNSAPI.dll
+0x00007ffd25ed0000 - 0x00007ffd25ed8000 	C:\WINDOWS\System32\NSI.dll
+0x00007ffd21b20000 - 0x00007ffd21b58000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x00007ffd0ef20000 - 0x00007ffd0ef2e000 	C:\WINDOWS\System32\winrnr.dll
+0x00007ffd0ef00000 - 0x00007ffd0ef15000 	C:\WINDOWS\System32\wshbth.dll
+0x000000006e840000 - 0x000000006e866000 	C:\Program Files\Bonjour\mdnsNSP.dll
+0x00007ffd02bb0000 - 0x00007ffd02c02000 	C:\HDBSTUDIO_RV\plugins\com.sap.ide.sapjvm.jre.win32.x86_64_81.30.30\jre\bin\jdwp.dll
+0x00007ffd1bd90000 - 0x00007ffd1bd98000 	C:\HDBSTUDIO_RV\plugins\com.sap.ide.sapjvm.jre.win32.x86_64_81.30.30\jre\bin\npt.dll
+0x00007ffd0f970000 - 0x00007ffd0f98c000 	C:\HDBSTUDIO_RV\plugins\com.sap.ide.sapjvm.jre.win32.x86_64_81.30.30\jre\bin\zip.dll
+0x00007ffcf0c60000 - 0x00007ffcf0cad000 	C:\WINDOWS\SYSTEM32\PDH.DLL
+0x00007ffd248c0000 - 0x00007ffd25dc8000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffd22500000 - 0x00007ffd22bda000 	C:\WINDOWS\System32\windows.storage.dll
+0x00007ffd224a0000 - 0x00007ffd224ec000 	C:\WINDOWS\System32\powrprof.dll
+0x00007ffd23590000 - 0x00007ffd235e2000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ffd22470000 - 0x00007ffd2247f000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x00007ffd22be0000 - 0x00007ffd22c89000 	C:\WINDOWS\System32\shcore.dll
+0x00007ffd22480000 - 0x00007ffd22494000 	C:\WINDOWS\System32\profapi.dll
+0x00007ffd0f1b0000 - 0x00007ffd0f1c7000 	C:\HDBSTUDIO_RV\plugins\com.sap.ide.sapjvm.jre.win32.x86_64_81.30.30\jre\bin\sapjvm_addons.dll
+0x00007ffd1bbc0000 - 0x00007ffd1bbcb000 	C:\HDBSTUDIO_RV\plugins\com.sap.ide.sapjvm.jre.win32.x86_64_81.30.30\jre\bin\dt_socket.dll
+0x00007ffd24240000 - 0x00007ffd242df000 	C:\WINDOWS\System32\clbcatq.dll
+0x00007ffd1ff20000 - 0x00007ffd1ff8a000 	C:\WINDOWS\System32\fwpuclnt.dll
+0x00007ffd1dab0000 - 0x00007ffd1daba000 	C:\Windows\System32\rasadhlp.dll
+0x00007ffd0a030000 - 0x00007ffd0a057000 	C:\HDBSTUDIO_RV\plugins\com.sap.ide.sapjvm.jre.win32.x86_64_81.30.30\jre\bin\net.dll
+0x00007ffd1db20000 - 0x00007ffd1dbed000 	C:\WINDOWS\SYSTEM32\WINHTTP.dll
+0x00007ffd204a0000 - 0x00007ffd204ae000 	C:\WINDOWS\System32\perfos.dll
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:65052 -ea -Dfile.encoding=UTF-8 -XtraceFile=javaw_@PID.log 
+non-official options: no
+classpath: C:\Users\i815797\Desktop\Coursera\A_ParallelProgramming\Week_2\miniproject_2\target\test-classes;C:\Users\i815797\Desktop\Coursera\A_ParallelProgramming\Week_2\miniproject_2\target\classes;C:\Users\i815797\.m2\repository\org\apache\maven\plugins\maven-resources-plugin\2.4.3\maven-resources-plugin-2.4.3.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-plugin-api\2.0.6\maven-plugin-api-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-project\2.0.6\maven-project-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-profile\2.0.6\maven-profile-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-artifact-manager\2.0.6\maven-artifact-manager-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-plugin-registry\2.0.6\maven-plugin-registry-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-core\2.0.6\maven-core-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\wagon\wagon-file\1.0-beta-2\wagon-file-1.0-beta-2.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-plugin-parameter-documenter\2.0.6\maven-plugin-parameter-documenter-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\wagon\wagon-http-lightweight\1.0-beta-2\wagon-http-lightweight-1.0-beta-2.jar;C:\Users\i815797\.m2\repository\org\apache\maven\wagon\wagon-http-shared\1.0-beta-2\wagon-http-shared-1.0-beta-2.jar;C:\Users\i815797\.m2\repository\jtidy\jtidy\4aug2000r7-dev\jtidy-4aug2000r7-dev.jar;C:\Users\i815797\.m2\repository\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\Users\i815797\.m2\repository\org\apache\maven\reporting\maven-reporting-api\2.0.6\maven-reporting-api-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\doxia\doxia-sink-api\1.0-alpha-7\doxia-sink-api-1.0-alpha-7.jar;C:\Users\i815797\.m2\repository\org\apache\maven\wagon\wagon-provider-api\1.0-beta-2\wagon-provider-api-1.0-beta-2.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-repository-metadata\2.0.6\maven-repository-m
+java_command: org.eclipse.jdt.internal.junit.runner.RemoteTestRunner -version 3 -port 65051 -testLoaderClass org.eclipse.jdt.internal.junit.runner.junit3.JUnit3TestLoader -loaderpluginname org.eclipse.jdt.junit.runtime -classNames edu.coursera.parallel.StudentAnalyticsTest
+java_class_path (initial): C:\Users\i815797\Desktop\Coursera\A_ParallelProgramming\Week_2\miniproject_2\target\test-classes;C:\Users\i815797\Desktop\Coursera\A_ParallelProgramming\Week_2\miniproject_2\target\classes;C:\Users\i815797\.m2\repository\org\apache\maven\plugins\maven-resources-plugin\2.4.3\maven-resources-plugin-2.4.3.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-plugin-api\2.0.6\maven-plugin-api-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-project\2.0.6\maven-project-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-profile\2.0.6\maven-profile-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-artifact-manager\2.0.6\maven-artifact-manager-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-plugin-registry\2.0.6\maven-plugin-registry-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-core\2.0.6\maven-core-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\wagon\wagon-file\1.0-beta-2\wagon-file-1.0-beta-2.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-plugin-parameter-documenter\2.0.6\maven-plugin-parameter-documenter-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\wagon\wagon-http-lightweight\1.0-beta-2\wagon-http-lightweight-1.0-beta-2.jar;C:\Users\i815797\.m2\repository\org\apache\maven\wagon\wagon-http-shared\1.0-beta-2\wagon-http-shared-1.0-beta-2.jar;C:\Users\i815797\.m2\repository\jtidy\jtidy\4aug2000r7-dev\jtidy-4aug2000r7-dev.jar;C:\Users\i815797\.m2\repository\xml-apis\xml-apis\1.0.b2\xml-apis-1.0.b2.jar;C:\Users\i815797\.m2\repository\org\apache\maven\reporting\maven-reporting-api\2.0.6\maven-reporting-api-2.0.6.jar;C:\Users\i815797\.m2\repository\org\apache\maven\doxia\doxia-sink-api\1.0-alpha-7\doxia-sink-api-1.0-alpha-7.jar;C:\Users\i815797\.m2\repository\org\apache\maven\wagon\wagon-provider-api\1.0-beta-2\wagon-provider-api-1.0-beta-2.jar;C:\Users\i815797\.m2\repository\org\apache\maven\maven-repository-metadata\2.0.6\ma
+Launcher Type: SAP_STANDARD
+
+Selected Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jre1.8.0_131\bin
+USERNAME=I815797
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
+
+current directory: C:\Users\i815797\Desktop\Coursera\A_ParallelProgramming\Week_2\miniproject_2
+
+
+Flags:
+Meaning of prefixes:
+      default value
+CMD   set on command line
+ENV   via environment variable
+CFG   via config file
+MGT   management
+ERG   ergonomic (calculated by VM)
+ATT   attach on demand
+MON   set via diagnostic tool (e.g. jvmmon)
+INT   internal
+
+     AdaptiveSizeDecrementScaleFactor: 4
+     AdaptiveSizeMajorGCDecayTimeScale: 10
+     AdaptiveSizePausePolicy: 0
+     AdaptiveSizePolicyCollectionCostMargin: 50
+     AdaptiveSizePolicyInitializingSteps: 20
+     AdaptiveSizePolicyOutputInterval: 0
+     AdaptiveSizePolicyWeight: 10
+     AdaptiveSizeThroughPutPolicy: 0
+     AdaptiveTimeWeight: 25
+     AddSupportUserGroups: 
+     AdditionalArgumentsFile: 
+     AdditionalSharedPermGenAllocSlack: 0
+     AdjustConcurrency: false
+     AggressiveOpts: false
+     AggressiveUnboxing: false
+     AlertTraces: false
+     AliasLevel: 3
+     AlignVector: false
+     AllChildProcessesAreProcessGroupLeader: false
+     AllocateInstancePrefetchLines: 1
+     AllocatePrefetchDistance: 192
+     AllocatePrefetchInstr: 3
+     AllocatePrefetchLines: 4
+     AllocatePrefetchStepSize: 64
+     AllocatePrefetchStyle: 1
+     AllocateTLCASlotsInOldGen: false
+     AllowDebuggingOnDemandViaProfilingServer: true
+     AllowDebuggingOnDemandViaSocket: true
+     AllowJNIEnvProxy: false
+     AllowMethodTrace: true
+     AllowNativeTestMethodAccess: false
+     AllowNewFork: true
+     AllowNewerClassFiles: false
+     AllowNonVirtualCalls: false
+     AllowOutOfSupportProcessors: false
+     AllowParallelDefineClass: false
+     AllowPosixSpawn: false
+     AllowUserSignalHandlers: false
+     AllowVFork: false
+     AlwaysActAsServerClassMachine: false
+     AlwaysClearSoftRefs: false
+     AlwaysCompileLoopMethods: false
+     AlwaysLockClassLoader: false
+     AlwaysPreTouch: false
+     AlwaysRestoreFPU: false
+     AlwaysTenure: false
+     AlwaysTryGlobalControlArea: false
+     AlwaysUsePSGCOverheadLimitAtFullGC: true
+     AlwaysWriteMarksInParallelPromotionFailureCleanup: true
+     AnalyseAbstractMethodErrorException: true
+     ArrayAllocatorMallocLimit: 18446744073709551615
+     AssertOnSuspendWaitFailure: false
+     AssumeMP: false
+     AttachListenerTimeout: 10000
+     AutoBoxCacheMax: 128
+     AutoGCSelectPauseMillis: 5000
+     AvoidLoggingSensibleData: false
+     BCEATraceLevel: 0
+     BackEdgeThreshold: 14000
+     BackgroundCompilation: true
+     BaseFootPrintEstimate: 268435456
+     BasicClassLoaderGraphSummaryOnOutOfMemoryError: false
+     BasicLockOwnerInThreadDump: true
+     BasicVirtualPlatformDetection: true
+     BetterCheckForPromotionFailureMarkRestoring: true
+     BiasedLockingBulkRebiasThreshold: 20
+     BiasedLockingBulkRevokeThreshold: 40
+     BiasedLockingDecayTime: 25000
+     BiasedLockingForCompilerAllocatedObjectsOnly: false
+     BiasedLockingForExplicitSitesOnly: false
+     BiasedLockingStartupDelay: 4000
+     BindCMSThreadToCPU: false
+     BindGCTaskThreadsToCPUs: false
+     BitMapLargeRangeThreshold: 32
+     BlockLayoutByFrequency: true
+     BlockLayoutMinDiamondPercentage: 20
+     BlockLayoutRotateLoops: true
+     BlockOffsetArrayUseUnallocatedBlock: false
+     BranchOnRegister: false
+     BytecodeAtExceptionAfterContextSize: 20
+     BytecodeAtExceptionBeforeContextSize: 30
+     BytecodeAtExceptionMaxFrames: 2
+     BytecodeVerificationLocal: false
+     BytecodeVerificationRemote: true
+     C1InlineStackLimit: 5
+     C1MaxInlineLevel: 9
+     C1MaxInlineSize: 35
+     C1MaxRecursiveInlineLevel: 1
+     C1OptimizeVirtualCallProfiling: true
+     C1PatchInvokeDynamic: true
+     C1ProfileBranches: true
+     C1ProfileCalls: true
+     C1ProfileCheckcasts: true
+     C1ProfileInlinedCalls: true
+     C1ProfileVirtualCalls: true
+     C1UpdateMethodData: true
+     C2SAPProfilingSupport: true
+     C2Tiers: false
+     C2TiersMakeNotEntrantDuringIVCOverflow: false
+     C2TiersNoIVC: false
+     C2TiersScavengeDuringIVCOverflow: 0
+     C2TiersUseBackedgeCounter: true
+     CCPMaxNewTypesLimit: 1000000
+ERG  CICompilerCount: 3
+     CICompilerCountPerCPU: true
+     CIStart: 0
+     CIStartOSR: 0
+     CIStop: 2147483647
+     CIStopOSR: 2147483647
+     CITime: false
+     CMSAbortSemantics: false
+     CMSAbortablePrecleanMinWorkPerIteration: 100
+     CMSAbortablePrecleanWaitMillis: 100
+     CMSBitMapYieldQuantum: 10485760
+     CMSBootstrapOccupancy: 50
+     CMSClassUnloadingEnabled: true
+     CMSClassUnloadingMaxInterval: 0
+     CMSCleanOnEnter: true
+     CMSClearDiscoveredReferencesBeforeCompaction: true
+     CMSCompactWhenClearAllSoftRefs: true
+     CMSCompactWhenPromotionFails: false
+     CMSConcMarkMultiple: 32
+     CMSConcurrentMTEnabled: false
+     CMSCoordinatorYieldSleepCount: 10
+     CMSDumpAtPromotionFailure: false
+     CMSEdenChunksRecordAlways: true
+     CMSExpAvgFactor: 50
+     CMSExtrapolateSweep: false
+     CMSFullGCsBeforeCompaction: 1
+     CMSIncrementalDutyCycle: 10
+     CMSIncrementalDutyCycleMin: 0
+     CMSIncrementalMode: false
+     CMSIncrementalOffset: 0
+     CMSIncrementalPacing: true
+     CMSIncrementalSafetyFactor: 10
+     CMSIndexedFreeListReplenish: 4
+     CMSInitiatingOccupancyFraction: -1
+     CMSIsTooFullPercentage: 98
+     CMSLargeCoalSurplusPercent: --
+     CMSLargeSplitSurplusPercent: --
+     CMSLoopWarn: false
+     CMSMarkingBitmapVerificationAfterFinalMarking: false
+     CMSMaxAbortablePrecleanLoops: 0
+     CMSMaxAbortablePrecleanTime: 5000
+     CMSOldPLABMax: 1024
+     CMSOldPLABMin: 16
+     CMSOldPLABNumRefills: 4
+     CMSOldPLABReactivityFactor: 2
+     CMSOldPLABResizeQuicker: false
+     CMSOldPLABToleranceFactor: 4
+     CMSPLABRecordAlways: true
+     CMSPLABRefillSamplingRate: 100
+     CMSParPromoteBlocksToClaim: 16
+     CMSParallelInitialMarkEnabled: true
+     CMSParallelRemarkEnabled: true
+     CMSParallelSurvivorRemarkEnabled: true
+     CMSPrecleanDenominator: 3
+     CMSPrecleanIter: 3
+     CMSPrecleanNumerator: 2
+     CMSPrecleanRefLists1: true
+     CMSPrecleanRefLists2: false
+     CMSPrecleanSurvivors1: false
+     CMSPrecleanSurvivors2: true
+     CMSPrecleanThreshold: 1000
+     CMSPrecleaningEnabled: true
+     CMSPrintChunksInDump: false
+     CMSPrintEdenSurvivorChunks: false
+     CMSPrintObjectsInDump: false
+     CMSPromoteTypeArraysWithTerminalObjects: true
+     CMSRemarkVerifyVariant: 1
+     CMSReplenishIntermediate: true
+     CMSRescanMultiple: 32
+     CMSSamplingGrain: 16384
+     CMSScavengeBeforeInitialMarking: true
+     CMSScavengeBeforeInitialMarkingEdenOccupancyThreshold: 25
+     CMSScavengeBeforeRemark: false
+     CMSScheduleRemarkEdenPenetration: 50
+     CMSScheduleRemarkEdenSizeThreshold: 2097152
+     CMSScheduleRemarkSamplingRatio: 5
+     CMSSmallCoalSurplusPercent: --
+     CMSSmallSplitSurplusPercent: --
+     CMSSplitIndexedFreeListBlocks: true
+     CMSTriggerInterval: -1
+     CMSTriggerRatio: 50
+     CMSUseSapJvmDefaults: true
+     CMSWaitDuration: 2000
+     CMSWorkQueueDrainThreshold: 10
+     CMSYield: true
+     CMSYieldSleepCount: 0
+     CMSYoungGenPerWorker: 67108864
+     CMS_FLSPadding: 1
+     CMS_FLSWeight: 75
+     CMS_SweepPadding: 1
+     CMS_SweepTimerThresholdMillis: 10
+     CMS_SweepWeight: 75
+     CPUForCMSThread: 0
+     CSEduringGCM: true
+     CachedLoadAverageDelayMillis: 15000
+     CallGetExtendedExceptionMessage: true
+     CancelHangingErrorReportingSteps: true
+     CarefulNotnullHoisting: false
+     CheckEndorsedAndExtDirs: false
+     CheckForCleanupInterval: 5000
+     CheckJNICalls: false
+     CheckLoadAverageAtGC: true
+     CheckParallelPromotionFailureCleanup: false
+     CheckProfilingStackTraces: false
+     CheckStackProtection: false
+     ClassCastExceptionDetail: 1
+     ClassLoaderGraphSummaryOnOutOfMemoryError: false
+     ClassUnloading: true
+     ClassUnloadingWithConcurrentMark: true
+     CleanupSharedFiles: true
+     ClearFPUAtPark: 0
+     ClientCompiler: false
+     ClipInlining: true
+     CoalesceMetaspace: true
+     CodeCacheExpansionSize: 65536
+     CodeCacheFlushingMinimumFreeSpace: 1536000
+     CodeCacheIsShortOnFreeSpaceLargestBlockLimit: 1740800
+     CodeCacheIsShortOnFreeSpaceUnallocatedCapacityLimit: 5120000
+     CodeCacheMinimumFreeSpace: 1024000
+     CollectGen0First: false
+     CollectMemoryHistory: true
+     CompactFields: true
+     CompilationPolicyChoice: 3
+     CompileCommand: 
+     CompileCommandFile: C:\HDBSTUDIO_RV\plugins\com.sap.ide.sapjvm.jre.win32.x86_64_81.30.30\jre\.hotspot_compiler
+     CompileOSRInTier2: true
+     CompileOnly: 
+     CompileThreshold: 1000
+     CompilerTestMode: 
+     CompilerThreadHintNoPreempt: true
+     CompilerThreadPriority: -1
+     CompilerThreadStackSize: 0
+     CompressedClassSpaceSize: 268435456
+     CompressedOopsForceHeapLocation: 0
+     CompressedOopsMode: 4
+     ConcGCThreads: 0
+     ConditionalMoveLimit: 3
+     ConstantsALot: false
+     ContendedPaddingWidth: 128
+     ConvertSleepToYield: true
+     ConvertYieldToSleep: false
+INT  CoreDumpType: none
+     CounterHalfLifeTime: 300
+     CreateMinidumpOnCrash: false
+     CriticalJNINatives: false
+     DTraceAllocProbes: false
+     DTraceMethodProbes: false
+     DTraceMonitorProbes: false
+     DebugInlinedCalls: true
+     DebugNonSafepoints: false
+     Debugging: false
+     DecodeErrorFile: 
+     DefaultMaxRAMFraction: 4
+     DefaultThreadPriority: -1
+     DeferAsyncExceptionsInNativeCode: true
+     DeferInitialCardMark: false
+     DeferPollingPageLoopCount: -1
+     DeferThrSuspendLoopCount: 4000
+     DeoptimizeAtRegisterFinalizer: false
+     DeoptimizeRandom: false
+     DetailedClassLoaderGraphSummaryOnOutOfMemoryError: false
+     DisableAttachMechanism: false
+     DisableCachedJavaTimeMillis: false
+     DisableExplicitGC: false
+     DisableIntrinsic: 
+     DisableJVMTICaps: 
+     DisableSapInterfaceVersionChecks: false
+     DisableStackStartRandomization: false
+     DisclaimArenaMemory: true
+     DisclaimArenaMemoryTestSize: 0
+     DisclaimArenaMemoryThreshold: 33554432
+     DisplayVMOutput: true
+     DisplayVMOutputToStderr: false
+     DisplayVMOutputToStdout: false
+     DoEscapeAnalysis: true
+     DoIoStatistics: true
+     DominatorSearchLimit: 1000
+     DontCompileHugeMethods: true
+     DontYieldALot: false
+     DumpAbsorbedObjectsInEden: false
+     DumpDetailedClassStatisticOnOutOfMemory: false
+     DumpGCHistoryOnOutOfMemory: false
+     DumpGCStatisticForLongGCs: true
+     DumpHsErrorWhenExitInInitialization: true
+     DumpInfoAtExit: false
+     DumpInfoOnHiMemLimit: false
+     DumpLoadedClassList: <null>
+     DumpMemRegionsForRegistersOnCrash: true
+     DumpMemRegionsForRegistersPrefix: 128
+     DumpMemRegionsForRegistersSuffix: 256
+     DumpPmapAtStartup: false
+     DumpPointersInThreadStackOnCrash: true
+     DumpReplayDataOnError: true
+     DumpSharedOOMDetails: true
+     DumpSharedSpaces: false
+     DumpStackTraceOnSystemExit: false
+     EagerXrunInit: false
+     EarlyLivePhase: false
+     EliminateAllocationArraySizeLimit: 64
+     EliminateAllocations: true
+     EliminateAutoBox: true
+     EliminateLocks: true
+     EliminateNestedLocks: true
+     EliminateNonProfilingSafepoints: true
+     EmitLateProfilingSafepoints: true
+     EmitSync: 0
+     EnableClassAndMethodFlags: true
+     EnableCompatMode: false
+     EnableCompilerTests: false
+     EnableContended: true
+INT  EnableDebuggingOnDemand: false
+     EnableFastOwnerCheckInSynchronizationTrace: true
+     EnableFindLoadedClassCache: true
+     EnableHotspotHeadlessCheck: false
+     EnableInvokeDynamic: true
+     EnableLegacyMonitoringOperationsViaProfilingServer: true
+     EnableMallocStat: true
+     EnableMonitoringBoard: true
+     EnableMonitoringServer: false
+     EnablePerThreadJavaIoInfoTracing: true
+     EnablePerThreadJavaNetworkInfoTracing: true
+     EnableSharedClasses: false
+     EnableSharedClosures: false
+INT  EnableSharedSessionStore: false
+     EnableTracing: false
+     EnableUnrecommendedOptionWarningInProductiveEnvironments: true
+     EnforceCompressedOopsMode: false
+     ErgoHeapSizeLimit: 0
+     ErrorFile: <null>
+     ErrorReportServer: <null>
+     EscapeAnalysisTimeout: --
+     EstimateArgEscape: true
+     EventLogLength: 4000
+     ExactGCHistory: false
+     ExceptionFilter: 
+     ExceptionStackClassFilter: 
+     ExceptionStackMethodFilter: 
+     ExitVMOnChangedSharedClass: false
+     ExitVMOnOutOfMemoryError: false
+     ExplicitGCInvokesConcurrent: false
+     ExplicitGCInvokesConcurrentAndUnloadsClasses: false
+     ExtendedClassCastExceptions: false
+     ExtendedDTraceProbes: false
+     ExtendedExceptionMessages: true
+     ExtendedExceptionMessagesAllLocalsUnknown: false
+     ExtendedExceptionMessagesBetterUnknownLocalNames: true
+     ExtendedExceptionMessagesInAIOOBE: true
+     ExtendedExceptionMessagesInNPE: true
+     ExtendedExceptionMessagesMaxDepth: 2
+     ExtendedExceptionMessagesPrintSummaries: false
+     ExtendedExceptionMessagesPrintTimings: false
+     ExtendedExceptionMessagesSkipUnknownLocals: true
+     ExtendedLoaderConstraintViolationExceptions: true
+     ExtendedSocketExceptionMessages: true
+     ExtraSharedClassListFile: <null>
+     FLOATPRESSURE: 6
+     FLSAlwaysCoalesceLarge: false
+     FLSCoalescePolicy: 2
+     FLSLargestBlockCoalesceProximity: --
+     FLSVerifyAllHeapReferences: false
+     FLSVerifyIndexTable: false
+     FLSVerifyLists: false
+     FailOverToOldVerifier: true
+     FairSafepointALot: false
+     FakeHotCallSites: false
+     FakeParseableNonCompilableMethods: false
+     FakeRestrictedDebugging: false
+     FastExtendedExceptionMessages: true
+     FastTLABRefill: true
+     FenceInstruction: 0
+     FieldsAllocationStyle: 1
+     FilterLdPreloadOfLibJvm: true
+     FilterSpuriousWakeups: true
+     FlushErrorStreams: false
+     FoldStableValues: true
+     ForceAllInternedStringsToOldGen: false
+     ForceDebuggingOnDemand: false
+     ForceDynamicNumberOfGCThreads: false
+     ForceLargePages: false
+     ForceNUMA: false
+     ForceTimeHighResolution: false
+     ForceUnreachable: false
+     FreqInlineSize: 325
+     G1ConcMarkStepDurationMillis: --
+     G1ConcRSHotCardLimit: 4
+     G1ConcRSLogCacheSize: 10
+     G1ConcRefinementGreenZone: 0
+     G1ConcRefinementRedZone: 0
+     G1ConcRefinementServiceIntervalMillis: 300
+     G1ConcRefinementThreads: 4
+     G1ConcRefinementThresholdStep: 0
+     G1ConcRefinementYellowZone: 0
+     G1ConfidencePercent: 50
+     G1EagerReclaimHumongousObjects: true
+     G1EagerReclaimHumongousObjectsWithStaleRefs: true
+     G1ExpandByPercentOfAvailable: 20
+     G1ForceFullGCAfterEvacuationFailure: true
+     G1HeapRegionSize: 0
+     G1HeapWastePercent: 5
+     G1LogLevel: <null>
+     G1MaxNewSizePercent: 60
+     G1MixedGCCountTarget: 8
+     G1MixedGCLiveThresholdPercent: 85
+     G1NewSizePercent: 5
+     G1OldCSetRegionThresholdPercent: 10
+     G1PrintGCDetailsFull: false
+     G1PrintHeapRegions: false
+     G1PrintRegionLivenessInfo: false
+     G1RSetRegionEntries: 0
+     G1RSetScanBlockSize: 64
+     G1RSetSparseRegionEntries: 0
+     G1RSetUpdatingPauseTimePercent: 10
+     G1RefProcDrainInterval: 10
+     G1ReservePercent: 10
+     G1SATBBufferEnqueueingThresholdPercent: 60
+     G1SATBBufferSize: 1024
+     G1SummarizeConcMark: false
+     G1SummarizeRSetStats: false
+     G1SummarizeRSetStatsPeriod: 0
+     G1TraceConcRefinement: false
+     G1TraceEagerReclaimHumongousObjects: false
+     G1TraceStringSymbolTableScrubbing: false
+     G1UpdateBufferSize: 256
+     G1UseAdaptiveConcRefinement: true
+     G1UseConcMarkReferenceProcessing: true
+     G1UseParallelRSetScanning: true
+     G1UseParallelRSetUpdating: true
+     G1VerifyHeapRegionCodeRoots: false
+     G1VerifyRSetsDuringFullGC: false
+     G1VerifySATBBufferEntry: false
+     GCDrainStackTargetSize: 64
+     GCHeapFreeLimit: 10
+     GCHistory: false
+     GCHistoryCompressionLevel: 5
+     GCHistoryFilename: 
+     GCHistoryMaxFileCount: 3
+     GCHistoryMaxFileSize: 20971520
+     GCHistoryMaxSize: 131072
+     GCLockerEdenExpansionPercent: 5
+     GCLockerInvokesConcurrent: false
+     GCLockerRetryAllocationCount: 2
+     GCLockerYoungGenGCEdenOccupancyThreshold: 50
+     GCLogFileSize: 8192
+     GCParallelVerificationEnabled: true
+     GCPauseIntervalMillis: 0
+     GCTaskTimeStampEntries: 200
+     GCTimeLimit: 90
+     GCTimeRatio: 99
+     GdlFilter: 
+     GdlHLNode: 0
+     GdlPath: 
+     GdlSpotDepth: 4
+     GenerateControlAreaFieldsOffsetFile: false
+     GenerateDebugInfoForGeneratedCode: 0
+     GenerateTraceMessage4AlertTesting: false
+     GetCriticalWarningTime: 60
+     GuaranteedSafepointInterval: 1000
+     HB_AllocatePredRegs: false
+     HB_DiamondShape: true
+     HB_IncludeBranchBlocks: true
+     HB_IncludeSmallBlocks: 2
+     HB_NoLoads: false
+     HB_NoMemoryAntiDepEdges: false
+     HB_OptimizePinchNodes: true
+     HB_RemoveInnerFallthroughExits: false
+     HB_Schedule: false
+     HB_ScheduleEarly: false
+     HB_SchedulePredicated: false
+     HB_TraceCalcWeight: false
+     HB_TraceConstruction: false
+     HB_TraceHyperblockShaping: false
+     HB_TraceInitCand: false
+     HB_TraceListSorting: false
+     HB_TraceOnPrintOracle: false
+     HB_TraceOptoScheduling: false
+     HB_TraceRegAntiDep: false
+     HB_TraceResolveDep: false
+     HB_TraceResult: false
+     HB_TraceSched: false
+     HB_TraceVerbose: false
+     HB_TreeShape: true
+     HandlePromotionFailure: true
+     HeapBaseMinAddress: 2147483648
+     HeapCorruptionCheckErrorLimit: 50
+     HeapCorruptionCheckMemRegionPrefix: 128
+     HeapCorruptionCheckMemRegionSuffix: 127
+     HeapDumpAfterFullGC: false
+     HeapDumpBeforeFullGC: false
+     HeapDumpOnCtrlBreak: false
+     HeapDumpOnDemandPath: 
+     HeapDumpOnOutOfMemoryError: false
+     HeapDumpPath: <null>
+     HeapDumpWithoutAddons: false
+     HeapFirstMaximumCompactionCount: 3
+     HeapManagerAddressHint: <null>
+     HeapMaximumCompactionInterval: 20
+     HeapSearchSteps: 20
+     HeapSizePerGCThread: 87241520
+     HeartBeatInGcHistory: true
+     HeartBeatInterval: 1000
+     HiMemLimit: 0
+     HotCallCountThreshold: 100
+     HotCallProfitThreshold: 5
+     HotCallTrivialSize: 200
+     HotCallTrivialWork: -1
+     HotSwap: true
+     INTPRESSURE: 13
+     IgnoreCompilerCrash: false
+     IgnoreEmptyClassPaths: false
+     IgnoreTier1CompilationAfterOSR: false
+     IgnoreUnrecognizedVMOptions: false
+     IgnoreUnverifiableClassesDuringDump: false
+     ImmediateCoreOnFatalError: false
+     ImplicitNullChecks: true
+     IncludeTopFrameBciInThreadDump: true
+     IncludeWaitsForClinitInThreadDump: true
+     IncreaseFirstTierCompileThresholdAt: 50
+     IncrementalInline: true
+     InitialBootClassLoaderMetaspaceSize: 4194304
+     InitialCodeCacheSize: 2555904
+ERG  InitialHeapSize: 12582912
+     InitialMonitoringBoardInGcHistory: true
+     InitialRAMFraction: 64
+     InitialSurvivorRatio: 8
+     InitialTenuringThreshold: 7
+     InitiatingHeapOccupancyPercent: 45
+     Inline: true
+     InlineAllocator: false
+     InlineConstLengthArrayCopy: false
+     InlineDataFile: <null>
+     InlineDelegations: true
+     InlineFrequencyCountTC: 2000
+     InlineObjectCopy: true
+     InlineProfileReceiverType: true
+     InlineSmallCode: 2000
+     InlineSmallCodeTC: 2000
+     InlineStringAllocations: false
+     InlineSynchronizedMethods: true
+     InlineThrowMaxSize: 200
+     InlineWarmCalls: false
+     InputForNewCode: 0
+     InputForNewCode2: 0
+     InputForNewCodeStr: <null>
+     InsertMemBarAfterArraycopy: true
+     InteriorEntryAlignment: 16
+     InterpreterProfilePercentage: 33
+     JITEventsTrace: false
+     JNIDetachReleasesMonitors: true
+     JRubyFrameStackInformationInStackTrace: true
+     JavaMonitorsInStackTrace: true
+     JavaMonitorsInThreadDump: true
+     JavaPriority10_To_OSPriority: -1
+     JavaPriority1_To_OSPriority: -1
+     JavaPriority2_To_OSPriority: -1
+     JavaPriority3_To_OSPriority: -1
+     JavaPriority4_To_OSPriority: -1
+     JavaPriority5_To_OSPriority: -1
+     JavaPriority6_To_OSPriority: -1
+     JavaPriority7_To_OSPriority: -1
+     JavaPriority8_To_OSPriority: -1
+     JavaPriority9_To_OSPriority: -1
+     JustInTimeDebuggerTimeoutSeconds: 4
+     JvmProfTimeout: 3600
+     KeepSafepointsInDeepestLoop: false
+     KeepSafepointsInSecondDeepestLoop: true
+     LIRFillDelaySlots: false
+     LargePageHeapSizeThreshold: 134217728
+     LargePageSizeInBytes: 0
+     LazyBootClassLoader: true
+     LimitThresholdForSfpt: 1000000
+     LimitYoungPLABSize: 131072
+     LiveNodeCountInliningCutoff: 40000
+     LoadPollAddressFromThread: true
+     LocalHeapDiagMode: 0
+     LocalMonitoringBoard: false
+     LogCompilation: false
+     LogDetailedSafepointEvents: false
+     LogEvents: true
+     LogEventsBufferEntries: 64
+     LogFile: <null>
+     LogGcMaxFileCount: 1
+     LogGcMaxFileSize: 
+     LogGcPrintStartTimeStamp: false
+     LogJavaAssertionErrorsAsAlerts: true
+     LogVMOutput: false
+     LongGCTime: 60
+     LoopLimitCheck: true
+     LoopMaxUnroll: 16
+     LoopOptsCount: 43
+     LoopUnrollLimit: 60
+     LoopUnrollMin: 4
+     LoopUnswitching: true
+     MallocMaxTestWords: 0
+     MallocStatDoZapMemory: false
+     MallocStatEnableInternalStatistics: false
+     MallocStatEnableUafRecog: false
+     MallocStatHashMapLoadFactor: --
+     MallocStatSelfTest: 0
+     MallocStatUafRecogBufferSize: 1073741824
+     MallocStatUafRecogKeepCallstacks: false
+     MallocStatUafRecogUseBackFence: false
+     MallocStatUafRecogUseFrontFence: false
+     MallocStatUseTrailingCushion: false
+     MallocStatZapMemoryPattern: 241
+     MallocVerifyInterval: 0
+     MallocVerifyStart: 0
+     ManagementServer: false
+     MarkStackSize: 4194304
+     MarkStackSizeMax: 536870912
+     MarkSweepAlwaysCompactCount: 4
+     MarkSweepDeadRatio: 1
+     MatchDecodeNodes: false
+     MaxAccuInlineSize: 20000
+     MaxBCEAEstimateLevel: 5
+     MaxBCEAEstimateSize: 150
+     MaxBytesToSearchForFirstObjectInRegionDump: 16384
+     MaxDirectMemorySize: 0
+     MaxErrorQueueLength: 0
+     MaxFDLimit: true
+     MaxGCMinorPauseMillis: 18446744073709551615
+     MaxGCPauseMillis: 18446744073709551615
+     MaxGCThreads: 0
+     MaxHeapFreeRatio: 100
+ERG  MaxHeapSize: 1073741824
+     MaxInlineLevel: 9
+     MaxInlineSize: 35
+     MaxJNILocalCapacity: 65536
+     MaxJavaStackTraceDepth: 102400
+     MaxJumpTableSize: 65000
+     MaxJumpTableSparseness: 5
+     MaxLabelRootDepth: 1100
+     MaxLoopPad: 11
+     MaxMetaspaceExpansion: 5451776
+     MaxMetaspaceFreeRatio: 70
+ERG  MaxMetaspaceSize: 10737418240
+ERG  MaxNewSize: 357564416
+     MaxNodeLimit: 80000
+     MaxPreallocatedOutOfMemoryErrorStackTraceDepth: 256
+     MaxRAM: 4294967296
+     MaxRAMFraction: 4
+     MaxRecursiveInlineLevel: 1
+     MaxTenuringThreshold: 15
+     MaxThreadCount: -1
+     MaxTrivialSize: 6
+INT  MaxVMs: 1
+     MaxVectorSize: 32
+     MemorySamplingInterval: 2000
+     MemoryStompingReportSize: 2048
+     MetaspaceSize: 21807104
+     MethodFlushing: true
+     MethodTraceFilter: 
+ERG  MinHeapDeltaBytes: 524288
+     MinHeapFreeRatio: 0
+     MinInlineHeat: 2000
+     MinInliningThreshold: 250
+     MinJumpTableSize: 10
+     MinMetaspaceExpansion: 339968
+     MinMetaspaceFreeRatio: 40
+     MinRAMFraction: 2
+     MinSurvivorRatio: 3
+     MinTLABSize: 2048
+     MonitorBound: 0
+     MonitorInUseLists: false
+     MonitorLockContentForJavaUtilConcurrent: true
+     MonitoringBoardInGcHistory: true
+     MonitoringBoardInGcHistoryFullUpdateInterval: 300
+     MonitoringBoardInGcHistoryUpdateInterval: 300000
+     MonitoringBoardSizeLimit: 1052672
+     MonitoringBoardTestCase: 0
+     MonitoringBoardUpdateInterval: 500
+     MonitoringHistory: false
+     MonitoringHistoryCompressionLevel: 5
+     MonitoringHistoryFilename: 
+     MonitoringHistoryMaxFileCount: 3
+     MonitoringHistoryMaxFileSize: 20971520
+     MultiArrayExpandLimit: 0
+     MustCallLoadClassInternal: false
+     NUMAChunkResizeWeight: 20
+     NUMAInterleaveGranularity: 2097152
+     NUMAPageScanRate: 256
+     NUMASpaceResizeRate: 1073741824
+     NUMAStats: false
+     NativeMemoryTracking: off
+     NativeMonitorFlags: 0
+     NativeMonitorSpinLimit: 20
+     NativeMonitorTimeout: -1
+     NativeShadowPages: 20
+     NativeShadowPagesIn4KBUnits: 20
+     NeedsDeoptSuspend: false
+     NestedInliningSizeRatio: 90
+     NeverActAsServerClassMachine: false
+     NeverTenure: false
+     NewRatio: 2
+     NewSize: 5242880
+     NewSizeThreadIncrease: 5320
+     NmethodSweepActivity: 10
+     NmethodSweepCheckInterval: 5
+     NmethodSweepFraction: 17
+     NmethodSweepReconnectThreshold: 1
+     NoGCForImpossibleAllocations: true
+     NoVariableChangeWhileDebugging: false
+     NodeCountInliningCutoff: 18000
+     NodeCountInliningStep: 3000
+     NodeLimitFudgeFactor: 2000
+     NotifyOnContendedLoad: true
+     NrOfAgeRanges: 100
+     NumberOfGCLogFiles: 0
+     NumberOfLoopInstrToAlign: 4
+     NumberOfSymbolEntriesToDump: 10
+     NumberOfTLCASlots: 4
+     ObjectAlignmentInBytes: 8
+     ObjectCountCutOffPercent: --
+     OldPLABSize: 1024
+     OldPLABWeight: 50
+ERG  OldSize: 7340032
+     OmitStackTraceInFastThrow: false
+     OmitUnnecessaryGCLockerYoungGenGCs: true
+     OnError: 
+     OnOutOfMemoryError: 
+     OnStackReplacePercentage: 140
+     OptimisticClassLoaderFilter: <null>
+     OptimisticClassLoading: false
+     OptimisticallyTransferAdditionalJVMS: true
+     OptimizeDIV: true
+     OptimizeExpensiveOps: true
+     OptimizeFill: false
+     OptimizeMUL: true
+     OptimizeMemBars: true
+     OptimizePollingPageLocation: false
+     OptimizePtrCompare: true
+     OptimizeStringConcat: true
+     OptoBundling: false
+     OptoFramelessMethods: false
+     OptoIdealizeDivIL: true
+     OptoLoopAlignment: 16
+     OptoNonFallThroughBlockAlignment: 1
+     OptoScheduling: false
+     PLABWeight: 75
+     PSChunkLargeArrays: true
+     ParGCArrayScanChunk: 50
+     ParGCCardsPerStrideChunk: 256
+     ParGCDesiredObjsFromOverflowList: 20
+     ParGCStridesPerThread: 2
+     ParGCTrimOverflow: true
+     ParGCUseLocalOverflow: false
+     ParNewThreadStateFlushingInParallel: false
+     ParallelGCBufferWastePct: 10
+     ParallelGCRetainPLAB: false
+     ParallelGCThreadErgonomicStart: 8
+     ParallelGCThreads: 4
+     ParallelGCVerbose: false
+     ParallelOldDeadWoodLimiterMean: 50
+     ParallelOldDeadWoodLimiterStdDev: 80
+     ParallelOldInitiatingOccupancyFraction: -1
+     ParallelPromotionFailureCleanup: true
+     ParallelRefProcBalancingEnabled: true
+     ParallelRefProcEnabled: true
+     ParallelRefProcThreshold: 5000
+     ParallelSavedMarkRestorationThreshold: 10000
+     PartialPeelAtUnsignedTests: true
+     PartialPeelLoop: true
+     PartialPeelNewPhiDelta: 0
+     PauseAtExit: false
+     PauseAtStartup: false
+     PauseAtStartupFile: <null>
+     PausePadding: 1
+     PerBytecodeRecompilationCutoff: 200
+     PerBytecodeTrapLimit: 4
+     PerMethodRecompilationCutoff: 400
+     PerMethodSpecTrapLimit: 5000
+     PerMethodTrapLimit: 100
+     PerfAllowAtExitRegistration: false
+     PerfBypassFileSystemCheck: false
+     PerfDataMemorySize: 32768
+     PerfDataSamplingInterval: 50
+     PerfDataSaveFile: <null>
+     PerfDataSaveToFile: false
+     PerfDisableSharedMem: false
+     PerfMaxStringConstLength: 1024
+     PermutateThreadsInSafepoint: false
+     PointersInThreadStackLimit: 50
+     PreInflateSpin: 10
+     PreallocatedOutOfMemoryErrorCount: 10
+     PreciseExtendedStackTrace: false
+     PredictedLoadedClassCount: 0
+     PreferInterpreterNativeStubs: false
+     PreferLAoverADD: true
+     PrefetchCopyIntervalInBytes: 576
+     PrefetchFieldsAhead: 1
+     PrefetchScanIntervalInBytes: 576
+     PreserveAllAnnotations: false
+     PretenureSizeThreshold: 0
+     PrintAdapterHandlers: false
+     PrintAdaptiveSizePolicy: false
+     PrintAssembly: false
+     PrintAssemblyOptions: <null>
+     PrintBiasedLockingStatistics: false
+     PrintCMSInitiationStatistics: false
+     PrintCMSStatistics: 0
+     PrintClassHistogram: false
+     PrintClassHistogramAfterFullGC: false
+     PrintClassHistogramBeforeFullGC: false
+     PrintCodeCache: false
+     PrintCodeCacheLayout: false
+     PrintCodeCacheOnCompilation: false
+     PrintCommandLineFlags: false
+     PrintCompilation: false
+     PrintCompilation2: false
+     PrintCompressedOopsMode: false
+     PrintConcurrentLocks: true
+     PrintConcurrentLocksDetailed: false
+     PrintDTraceDOF: false
+     PrintEmergencySpaceUsage: true
+     PrintFLSCensus: 0
+     PrintFLSStatistics: 0
+     PrintFlagsFinal: false
+     PrintFlagsInitial: false
+     PrintGC: false
+     PrintGCApplicationConcurrentTime: false
+     PrintGCApplicationStoppedTime: false
+     PrintGCCause: true
+     PrintGCDateStamps: false
+     PrintGCDetails: false
+     PrintGCID: false
+     PrintGCTaskTimeStamps: false
+     PrintGCTimeStamps: false
+     PrintHeapAtGC: false
+     PrintHeapAtGCExtended: false
+     PrintHeapAtSIGBREAK: true
+     PrintInlining: false
+     PrintInterpreter: false
+     PrintIntrinsics: false
+     PrintJNIGCStalls: false
+     PrintJNIResolving: false
+     PrintLockingStatistics: false
+     PrintMallocFree: false
+     PrintMatcherSelection: false
+     PrintMemoryHistoryHumanReadable: true
+     PrintMetaspaceMapOnOutOfMemoryError: false
+     PrintMetaspaceStatisticOnOutOfMemoryError: true
+     PrintMethodData: false
+     PrintMethodFlushingStatistics: false
+     PrintMethodHandleStubs: false
+     PrintNMTStatistics: false
+     PrintNMethods: false
+     PrintNativeNMethods: false
+     PrintOSRCompilation: false
+     PrintOldPLAB: false
+     PrintOopAddress: false
+     PrintOptoAssembly: false
+     PrintPLAB: false
+     PrintParallelOldGCPhaseTimes: false
+     PrintPreciseBiasedLockingStatistics: false
+     PrintPreciseRTMLockingStatistics: false
+     PrintPromotionFailure: false
+     PrintReferenceGC: false
+     PrintSafepointStatistics: false
+     PrintSafepointStatisticsCount: 300
+     PrintSafepointStatisticsTimeout: -1
+     PrintSharedArchiveAndExit: false
+     PrintSharedDictionary: false
+     PrintSharedSpaces: false
+     PrintSignalHandlersAtExit: false
+     PrintSignatureHandlers: false
+     PrintStringDeduplicationStatistics: false
+     PrintStringTableStatistics: false
+     PrintStubCode: false
+     PrintTLAB: false
+     PrintTLABsOnHeapCorruptionCheck: true
+     PrintTLCAStatistics: false
+     PrintTenuringDistribution: false
+     PrintTieredEvents: false
+     PrintVMMessages: true
+     PrintVMOptions: false
+     PrintVMQWaitTime: false
+     PrintWarnings: true
+     ProcessDistributionStride: 4
+     ProcessTimeSamplingInterval: 2000
+     ProcessorArchitecture: 
+     ProduceGdlOnError: true
+     ProduceGdlOutput: false
+     ProduceGdlOutputForStubs: false
+     ProfileDynamicTypes: true
+     ProfileInterpreter: true
+     ProfileIntervals: false
+     ProfileIntervalsTicks: 100
+     ProfileMaturityPercentage: 20
+     ProfileVM: false
+     ProfilerPrintByteCodeStatistics: false
+     ProfilerRecordPC: false
+     ProfilerStartDeactivated: false
+     Profiling: false
+     Profiling14: true
+     Profiling16: true
+     Profiling18: true
+     Profiling20: true
+     Profiling22: true
+     Profiling24: false
+     ProfilingAlertTrace: false
+     ProfilingAllocationIncludeInlineCount: false
+     ProfilingAllocationOnlyTopPhysicalFrame: false
+     ProfilingAllocationTrace: false
+     ProfilingAllocationTraceAllowMultiEvents: true
+     ProfilingAllocationTraceAllowPacketReordering: false
+     ProfilingAllocationTraceAssignObjectId: false
+     ProfilingAllocationTraceEveryNth: 0
+     ProfilingAllocationTraceFilter: 
+     ProfilingAllocationTraceHideClassLoading: false
+     ProfilingAllocationTraceHideFinalizerAllocation: false
+     ProfilingAllocationTraceHideStaticInitializers: false
+     ProfilingAllocationTraceHideStringResolving: false
+     ProfilingAllocationTraceIncludeLineNrs: true
+     ProfilingAllocationTraceIncreaseCount: 8192
+     ProfilingAllocationTraceIsAdaptive: false
+     ProfilingAllocationTraceIsSilent: false
+     ProfilingAllocationTraceMaxSize: 65536
+     ProfilingAllocationTraceMaxStackSize: -1
+     ProfilingAllocationTraceMinSize: 32
+     ProfilingAllocationUseBciAsLineNr: false
+     ProfilingAllocationUseNonZeroBciAsLineNr: false
+     ProfilingAllowParallelDeflate: true
+     ProfilingCompressionLevel: 5
+     ProfilingExceptionTrace: false
+     ProfilingExceptionTraceClassFilter: 
+     ProfilingExceptionTraceIncludeCauses: true
+     ProfilingExceptionTraceIncludeLineNrs: true
+     ProfilingExceptionTraceIncludeThrowStackTrace: true
+     ProfilingExceptionTraceStackClassFilter: 
+     ProfilingExceptionTraceStackMethodFilter: 
+     ProfilingExitTraceStackTraceInMethodParameters: false
+     ProfilingFilename: 
+     ProfilingGCStatisticIsExact: true
+     ProfilingGcStatistic: true
+     ProfilingHeartBeatTrace: true
+     ProfilingHeartBeatTraceCheckSleeping: true
+     ProfilingHeartBeatTraceSmallPackets: false
+     ProfilingIOTrace: false
+     ProfilingIOTraceFdTableSize: 40000
+     ProfilingIOTraceOpenFiles: true
+     ProfilingIOTraceOverflowFdTableLimit: 2000000
+     ProfilingIncludeAllStorableAlerts: false
+     ProfilingJRuby: false
+     ProfilingJRubyNoShared: false
+     ProfilingJitEvents: true
+     ProfilingJvmProfServer: false
+     ProfilingJvmProfServerTimeout: 5000
+     ProfilingMaxFileSize: 0
+     ProfilingMethodCoverage: false
+     ProfilingMethodCoverageFilter: 
+     ProfilingMethodTrace: false
+     ProfilingMethodTraceCompressRepetitions: false
+     ProfilingMethodTraceOmitGetterSetter: false
+     ProfilingMonitorSlowEnterTrace: false
+     ProfilingMonitorSlowEnterTraceIncludeStackTrace: true
+     ProfilingMonitoringBoardTrace: true
+     ProfilingMonitoringBoardTraceUpdateInterval: 1000
+     ProfilingNetworkTrace: false
+     ProfilingNetworkTraceFdTableSize: 40000
+     ProfilingNetworkTraceOpenSockets: true
+     ProfilingNetworkTraceOverflowFdTableLimit: 2000000
+     ProfilingNetworkTraceRetrieveLocalServices: true
+     ProfilingNetworkTraceReverseDnsLookupTimeout: 5000
+     ProfilingObjectDeathTrace: false
+     ProfilingOldGenClassStatistic: 
+     ProfilingParallelDeflateThreads: 4
+     ProfilingParameterTrace: false
+     ProfilingParameterTraceAllowMethodModifiers: true
+     ProfilingParameterTraceCompilation: true
+     ProfilingParameterTraceCreateManyDefinitions: false
+     ProfilingParameterTraceDescription: <null>
+     ProfilingParameterTraceGenerateObjectIdentifiers: true
+     ProfilingParameterTraceMethod: <null>
+     ProfilingParameterTraceModifiers: <null>
+     ProfilingParameterTraceName: <null>
+     ProfilingParameterTraceOnlyDeclaredClass: <null>
+     ProfilingParameterTraceParameterIndex: <null>
+     ProfilingParameterTraceUseOnlyMostSpecificMethods: true
+     ProfilingParameterTraceWithOverwritten: <null>
+     ProfilingPermGenClassStatistic: 
+     ProfilingServer: true
+     ProfilingServerIdentifier: 
+     ProfilingServerMaxClients: 20
+     ProfilingServerSuspendVM: false
+     ProfilingServerTimeout: 20000
+     ProfilingServerUnrestricted: false
+     ProfilingSynchronizationTrace: false
+     ProfilingSynchronizationTraceWaitNotifyEvents: false
+     ProfilingThreadFilter: 
+     ProfilingThreadStateSampling: false
+     ProfilingTimeBasedSampling: false
+     ProfilingTraceCpuTimeInMethodParameters: false
+     ProfilingTraceElapsedTimeInMethodParameters: false
+     ProfilingTraceStackTraceInMethodParameters: false
+     ProfilingYoungGenClassStatistic: 
+     PromotedPadding: 3
+     PromotionFailureCleanupEdenRegionSize: 20
+     PublishMonitoringBoardInOwnThread: true
+     QueuedAllocationWarningCount: 0
+     RTMAbortRatio: 50
+     RTMAbortThreshold: 1000
+     RTMLockingCalculationDelay: 0
+     RTMLockingThreshold: 10000
+     RTMRetryCount: 5
+     RTMSpinLoopCount: 100
+     RTMTotalCountIncrRate: 64
+     RaiseSIGILLInCrashHandler: false
+     RaiseSIGSEGVInCrashHandler: false
+     RangeCheckElimination: true
+     RangeLimitCheck: true
+     ReadPrefetchInstr: 0
+     ReassociateInvariants: true
+     ReduceBulkZeroing: true
+     ReduceFieldZeroing: true
+     ReduceInitialCardMarks: true
+     ReduceSignalUsage: false
+     RefDiscoveryPolicy: 0
+     ReflectionReorderMethods: true
+     ReflectionWrapResolutionErrors: true
+     RegisterFinalizersAtInit: true
+     RegisterStackShadowArea: 8184
+     ReinitializeConditionAfterTimedWait: false
+     RelaxAccessControlCheck: false
+     RelaxSuperWordCheck: false
+     ReoptimizeCallSequences: true
+     ReplayDataFile: <null>
+     ReportFullGCStartInVmcExtensions: true
+     RequireSharedSpaces: false
+     ReservedCodeCacheSize: 268435456
+     ResizeOldPLAB: true
+     ResizePLAB: true
+     ResizeTLAB: true
+     RestoreMXCSROnJNICalls: false
+     RestoreSignalHandlersAtExit: true
+     RestrictContended: true
+     RetryAfterCompilerCrash: false
+     ReverseLookupEnabled: true
+     RewriteBytecodes: true
+     RewriteFrequentPairs: true
+     RoundRobinFloatRegIntervalLength: 0
+     RoundRobinFloatRegIntervalStart: -1
+     RoundRobinIntegerRegIntervalLength: 0
+     RoundRobinIntegerRegIntervalStart: -1
+     SafepointPollOffset: 256
+     SafepointSpinBeforeYield: 2000
+     SafepointTimeout: true
+     SafepointTimeoutDelay: 1200000
+     ScavengeBeforeFullGC: true
+     ScavengeRootsInCode: 2
+     ScheduleASAPinLCM: false
+     SelfDestructTimer: 0
+     SerializeVMOutput: true
+     SetCoreSizeToMax: false
+     ShareVtableStubs: true
+     SharedArchiveFile: <null>
+     SharedBaseAddress: 34359738368
+     SharedClassListFile: <null>
+     SharedHeapDiagMode: 0
+     SharedMiscCodeSize: 122880
+     SharedMiscDataSize: 4194304
+     SharedPermGenSize: 0
+     SharedReadOnlySize: 16777216
+     SharedReadWriteSize: 16777216
+     ShortenBranches: true
+     ShowAlertsInStackTrace: true
+     ShowClassLoadersInStackTrace: true
+     ShowClassLoadersSummaryInStackTrace: true
+     ShowHiddenFrames: false
+     ShowLoadClassNameInStackTrace: true
+     ShowMessageBoxOnError: false
+     ShowRecursiveDefineClassInfoInStackTrace: true
+     ShowResolvingInterfaceOrSuperInStackTrace: true
+     ShowSocketInfoInStackTrace: true
+     SleepInCrashHandler: false
+     SmallHeartBeatInGcHistory: true
+     SoftRefLRUPolicyMSPerMB: 1000
+     SpecTrapLimitExtraEntries: 3
+     SpecialEncodeISOArray: true
+     SplitIfBlocks: true
+     StackRedPages: 1
+     StackRedPagesIn4KBUnits: 1
+     StackShadowPages: 6
+     StackShadowPagesIn4KBUnits: 6
+     StackTraceInThrowable: true
+     StackYellowPages: 3
+     StackYellowPagesIn4KBUnits: 3
+     StartAttachListener: false
+     StartMallocStat: true
+     StarvationMonitorInterval: 200
+     StopOnSafepointTimeout: true
+     StressLdcRewrite: false
+     StrictSafepointChecks: false
+     StringDeduplicationAgeThreshold: 3
+     StringDeduplicationRehashALot: false
+     StringDeduplicationResizeALot: false
+     StringTableSize: 60013
+     SuppressFatalErrorMessage: false
+     SuppressOSErrorReporting: false
+     SurvivorAlignmentInBytes: 8
+     SurvivorPadding: 3
+     SurvivorRatio: 8
+     SuspendRetryCount: 50
+     SuspendRetryDelay: 5
+     SymbolTableSize: 60013
+     SyncFlags: 0
+     SyncKnobs: 
+     SyncVerbose: 0
+     SyncedOptimisticClassLoading: false
+     SynchronizeHrTime: true
+     TLABAllocationWeight: 35
+     TLABRefillWasteFraction: 64
+     TLABSize: 0
+     TLABStats: true
+     TLABWasteIncrement: 4
+     TLABWasteTargetPercent: 1
+     TLCAMethodAnalysisAnalyzeLocals: true
+     TLCAMethodAnalysisAnalyzeStack: true
+     TLCASlotSize: 2024
+     TargetPLABWastePct: 10
+     TargetSurvivorRatio: 50
+     TenuredGenerationSizeIncrement: 20
+     TenuredGenerationSizeSupplement: 80
+     TenuredGenerationSizeSupplementDecay: 2
+     TerminateVMOnHiMemLimit: false
+     TestExtendedExceptionMessages: false
+     TestExtendedExceptionMessagesWithMessage: false
+     TestGdlOutput: false
+     TestRobustJIT: false
+     TestSafeFetchInCrashHandler: false
+     ThreadDumpMaxFileCount: 3
+     ThreadDumpMaxFileSize: 10485760
+     ThreadDumpPath: 
+     ThreadPriorityPolicy: 0
+     ThreadPriorityVerbose: false
+     ThreadSafetyMargin: 52428800
+     ThreadSpecificPollingPages: false
+     ThreadStackSize: 0
+     ThreadStateSamplingInterval: 10
+     ThresholdTolerance: 10
+     ThrowExceptionOnChangedSharedClass: false
+     Tier0BackedgeNotifyFreqLog: 10
+     Tier0InvokeNotifyFreqLog: 7
+     Tier0ProfilingStartPercentage: 200
+     Tier1CompileQueuePriority: true
+     Tier1CountOnly: false
+     Tier1FLOATPRESSURE: 6
+     Tier1FreqInlineSize: 35
+     Tier1INTPRESSURE: 13
+     Tier1Inline: 0
+     Tier1InlineIntrinsics: true
+     Tier1LoopOptsCount: 0
+     Tier1MaxInlineSize: 8
+     Tier1OSRMultiplier: 5
+     Tier1OptoScheduling: false
+     Tier1ProfileUnusedMethodDataTypes: true
+     Tier1TransitionToOSR: true
+     Tier1UpdateMethodData: true
+     Tier23InlineeNotifyFreqLog: 20
+     Tier2BackEdgeThreshold: 100000
+     Tier2BackedgeNotifyFreqLog: 14
+     Tier2CompileThreshold: 10000
+     Tier2InvokeNotifyFreqLog: 11
+     Tier3BackEdgeThreshold: 60000
+     Tier3BackedgeNotifyFreqLog: 13
+     Tier3CompileThreshold: 2000
+     Tier3DelayOff: 2
+     Tier3DelayOn: 5
+     Tier3InvocationThreshold: 200
+     Tier3InvokeNotifyFreqLog: 10
+     Tier3LoadFeedback: 5
+     Tier3MinInvocationThreshold: 100
+     Tier4BackEdgeThreshold: 40000
+     Tier4CompileThreshold: 15000
+     Tier4InvocationThreshold: 5000
+     Tier4LoadFeedback: 3
+     Tier4MinInvocationThreshold: 600
+     TieredCompilation: true
+     TieredCompileTaskTimeout: 50
+     TieredRateUpdateMaxTime: 25
+     TieredRateUpdateMinTime: 1
+     TieredStopAtLevel: 4
+     TimeBaseSamplingWaitInVMThread: false
+     TimeBasedSamplingBoostByLoweringJavaThreads: false
+     TimeBasedSamplingBoostWatcherAndVmThreadPrio: false
+     TimeBasedSamplingCPUTimes: true
+     TimeBasedSamplingEnableSafepointSupport: true
+     TimeBasedSamplingEnableSmoothSafepointTransition: true
+     TimeBasedSamplingFairSafepoints: true
+     TimeBasedSamplingIgnoreSleepingThreads: true
+     TimeBasedSamplingInterval: 10
+     TimeBasedSamplingIntervalVariance: 0
+     TimeBasedSamplingMakeSleepSnapshot: true
+     TimeBasedSamplingOptimizedProfilingSafepoints: true
+     TimeBasedSamplingShortSafepoints: false
+     TimeBasedSamplingSpinSafepoint: false
+     TimeLinearScan: false
+     TraceBiasedLocking: false
+     TraceClassLoading: false
+     TraceClassLoadingPreorder: false
+     TraceClassPaths: false
+     TraceClassResolution: false
+     TraceClassUnloading: false
+     TraceCodeCacheUsage: false
+     TraceCompilationFailures: false
+     TraceCompilerOracle: false
+     TraceDeoptimization: false
+     TraceDynamicGCThreads: false
+     TraceErrorsWarningsToSystemLog: true
+     TraceGCTaskThread: false
+     TraceGen0Time: false
+     TraceGen1Time: false
+     TraceInfoToShell: false
+     TraceInvocationCounterOverflow: false
+     TraceJVMTI: <null>
+     TraceJVMTIObjectTagging: false
+     TraceLoaderConstraints: false
+     TraceMetadataHumongousAllocation: false
+     TraceMetadataOccupancyEveryNth: 0
+     TraceMonitorInflation: false
+     TraceNMethodInstalls: false
+     TraceParallelOldGCTasks: false
+     TracePerThreadSafepoint: false
+     TraceProfilingSafepoint: false
+     TraceRedefineClasses: 0
+     TraceSafepoint: false
+     TraceSafepointCleanupTime: false
+     TraceSpuriousWakeups: true
+     TraceSpuriousWakeupsThreshold: 10000
+     TraceSuspendWaitFailures: false
+     TraceTypeProfile: false
+     TraceVMOperation: false
+     TrackedInitializationLimit: 50
+     TransmitErrorReport: false
+     TrapBasedNullChecks: false
+     TrapBasedRangeChecks: false
+     TrustFinalNonStaticFields: false
+     TwoPassSfptElimination: true
+     TypeProfileArgsLimit: 2
+     TypeProfileDelegationsMajorReceiverPercent: 80
+     TypeProfileLevel: 111
+     TypeProfileMajorReceiverPercent: 90
+     TypeProfileParmsLimit: 2
+     TypeProfileWidth: 2
+     UnguardOnExecutionViolation: 0
+     UnlinkSymbolsALot: false
+     UnloadingInfoInClassLoaderGraphSummary: false
+     UnlockExperimentalVMOptions: false
+     UnrollLimitCheck: true
+     UnsyncloadClass: false
+     Use14CompatibleClassLoading: false
+     Use486InstrsOnly: false
+     UseAES: true
+     UseAESIntrinsics: true
+     UseAVX: 2
+     UseAbstractDisassembler: false
+     UseAdaptiveGCBoundary: false
+     UseAdaptiveGenerationSizePolicyAtMajorCollection: true
+     UseAdaptiveGenerationSizePolicyAtMinorCollection: true
+     UseAdaptiveNUMAChunkSizing: true
+     UseAdaptiveSizeDecayMajorGCCost: true
+     UseAdaptiveSizePolicy: true
+     UseAdaptiveSizePolicyFootprintGoal: true
+     UseAdaptiveSizePolicyWithSystemGC: false
+     UseAddressNop: true
+     UseAltSigs: false
+     UseAutoGCSelectPolicy: false
+     UseBMI1Instructions: true
+     UseBMI2Instructions: true
+     UseBiasedLocking: true
+     UseBimorphicInlining: true
+     UseBoundThreads: true
+     UseBundleInformation: false
+     UseCGroupMemoryLimitForHeap: false
+     UseCHeapForCMSSpoolBlocks: false
+     UseCISCSpill: true
+     UseCLMUL: true
+     UseCMSBestFit: true
+     UseCMSCollectionPassing: true
+     UseCMSCompactAtFullCollection: true
+     UseCMSConcurrentSoftRefPreprocessing: false
+     UseCMSGCOverheadLimit: true
+     UseCMSInitiatingOccupancyOnly: false
+     UseCRC32Intrinsics: true
+     UseCodeCacheFlushing: true
+     UseCompiler: true
+     UseCompilerSafepoints: true
+     UseCompilerThreadBufferBlobs: true
+ERG  UseCompressedClassPointers: true
+ERG  UseCompressedOops: true
+     UseConcMarkSweepGC: false
+     UseCondCardMark: false
+     UseCoopsFriendlyHeap: true
+     UseCountLeadingZerosInstruction: true
+     UseCountTrailingZerosInstruction: true
+     UseCounterDecay: true
+     UseCriticalCMSThreadPriority: false
+     UseCriticalCompilerThreadPriority: false
+     UseCriticalJavaThreadPriority: false
+     UseDivMod: true
+     UseDynamicNumberOfGCThreads: false
+     UseExtendedStackTrace: false
+     UseFPUForSpilling: true
+     UseFastAccessorMethods: false
+     UseFastEmptyMethods: false
+     UseFastJNIAccessors: true
+     UseFastStosb: true
+     UseG1GC: false
+     UseG1GCExperimental: false
+     UseGCLogFileRotation: false
+     UseGCOverheadLimit: true
+     UseGCTaskAffinity: false
+     UseGetTimeOfDay: false
+     UseHeapCorruptionCheckOnVMCrash: true
+     UseHeavyMonitors: false
+     UseHierarchicalCopyingGCForTerminalObjects: true
+     UseHyperblocks: false
+     UseImplicitStableValues: true
+     UseIncDec: true
+     UseInlineCaches: true
+     UseInlineDepthForSpeculativeTypes: true
+     UseInlineTLCAAllocate: true
+     UseInlineTLCAFree: true
+     UseInterpreter: true
+     UseJVMTI12: false
+     UseJumpTables: true
+     UseLWPSynchronization: true
+     UseLargePages: false
+     UseLargePagesInMetaspace: false
+ERG  UseLargePagesIndividualAllocation: false
+     UseLockedTracing: false
+     UseLoopCounter: true
+     UseLoopInvariantCodeMotion: true
+     UseLoopPredicate: true
+     UseLowFragmentationHeap: true
+     UseMathExactIntrinsics: true
+     UseMaximumCompactionOnSystemGC: true
+     UseMemSetInBOT: true
+     UseMemTopDown: false
+     UseMembar: false
+     UseMultiplyToLenIntrinsic: true
+     UseNUMA: false
+     UseNUMAInterleaving: false
+     UseNewCode: false
+     UseNewCode2: false
+     UseNewCode3: false
+     UseNewHashFunction: true
+     UseNewInitialHeapSizeDefaults: false
+     UseNewLongLShift: false
+     UseNewTreeMap: true
+     UseOSErrorReporting: false
+     UseOldInlining: true
+     UseOnStackReplacement: true
+     UseOnlyInlinedBimorphic: true
+     UseOnlyOldGenInSoftRefLRUPolicy: true
+     UseOptimizedNMethodIteration: true
+     UseOptoBiasInlining: false
+     UsePCRelativeTOC: true
+     UsePSAdaptiveSurvivorSizePolicy: true
+     UseParNewGC: false
+ERG  UseParallelGC: true
+     UseParallelOldGC: true
+     UsePerfData: true
+     UsePopCountInstruction: true
+     UseProfilingSafepoints: false
+     UseRDPCForConstantTableBase: false
+     UseRTMDeopt: false
+     UseRTMForStackLocks: false
+     UseRTMLocking: false
+     UseRTMXendForLockBusy: true
+     UseRestrictedBiasedLocking: false
+     UseRestrictedDebugging: false
+     UseRoundRobinPolicyInChaitin: false
+     UseSHA: false
+     UseSHA1Intrinsics: false
+     UseSHA256Intrinsics: false
+     UseSHA512Intrinsics: false
+     UseSIGTRAP: true
+     UseSSE: 4
+     UseSSE42Intrinsics: true
+     UseSerialGC: false
+     UseSharedSpaces: false
+     UseSignalChaining: true
+     UseSignalChainingForErrorSignals: false
+     UseSoftRefPolicyDuringMarking: true
+     UseSoftRefPreprocessing: false
+     UseSplitVerifier: true
+     UseStoreImmI16: false
+     UseStringDeduplication: false
+     UseSuperWord: true
+     UseSupportUserGroups: true
+     UseTLAB: true
+     UseTLCA: true
+     UseTLCAMethodAnalysis: true
+     UseTenuredGCOverheadLimit: true
+     UseThreadLocalCardMarkArrayBaseAccess: false
+     UseThreadPriorities: true
+     UseThreadsSafepointLock: true
+     UseTwoPassInlining: false
+     UseTypeProfile: true
+     UseTypeSpeculation: true
+     UseUTCFileTimestamp: true
+     UseUnalignedLoadStores: true
+     UseVMInterruptibleIO: false
+     UseXMMForArrayCopy: true
+     UseXmmI2D: false
+     UseXmmI2F: false
+     UseXmmLoadAndClearUpper: true
+     UseXmmRegToRegMoveAll: true
+     VMThreadHintNoPreempt: false
+     VMThreadPriority: -1
+     VMThreadStackSize: 0
+     ValueMapInitialSize: 11
+     ValueMapMaxLoopSize: 8
+     ValueSearchLimit: 1000
+     Verbose: false
+     VerboseReportAndDie: false
+     VerboseReportAndDieToFile: false
+     VerboseVerification: false
+     VerifyAdapterCalls: false
+     VerifyAfterGC: false
+     VerifyBeforeExit: false
+     VerifyBeforeGC: false
+     VerifyBeforeIteration: false
+     VerifyClassHierarchyDuringGC: false
+     VerifyDuringGC: false
+     VerifyDuringStartup: false
+     VerifyGCLevel: 0
+     VerifyGCStartAt: 0
+     VerifyMergedCPBytecodes: true
+     VerifyMethodHandles: false
+     VerifyObjectStartArray: true
+     VerifyOpto: false
+     VerifyOptoOopOffsets: false
+     VerifyRememberedSets: false
+     VerifySharedSpaces: false
+     VerifySilently: false
+     VerifyStringTableAtExit: false
+     VerifySymbolTable: false
+     VirtualPlatformDetection: false
+     VirtualPlatformUpdateInterval: 5000
+     WarmCallMaxSize: 1000
+     WarmCallMaxWork: 999999
+     WarmCallMinCount: 20
+     WarmCallMinProfit: 1
+     WatcherThreadCrashTimeoutInMinutes: 2
+     WhiteBoxAPI: false
+     WizardMode: false
+     WorkAroundNPTLTimedWaitHang: 1
+     WorkStealingHardSpins: 4096
+     WorkStealingSleepMillis: 1
+     WorkStealingSpinToYieldRatio: 10
+     WorkStealingYieldsBeforeSleep: 5000
+     YoungGenerationSizeIncrement: 20
+     YoungGenerationSizeSupplement: 80
+     YoungGenerationSizeSupplementDecay: 8
+     YoungPLABSize: 4096
+     ZeroTLAB: false
+     hashCode: 5
+
+
+---------------  M E M O R Y   H I S T O R Y  -------------
+
+
+Columns:
+  WorkSet       Process Working Set Size
+  Reserved      Reserved (Virtual) Process Size
+  Avail         Available (unallocated) Memory on Machine
+  Java Res.     Reserved Java Heap
+  Java Comm.    Committed Java Heap
+  Java Used     Used Java Heap
+  Malloc        Memory allocated according to Malloc Stat in Hotspot and JDK
+  Meta Res.     Meta Space (non-class), reserved
+  Meta Comm.    Meta Space (non-class), committed
+  Meta Used     Meta Space (non-class), used
+  CCS Res.      Meta Space (compressed class space), reserved
+  CCS Comm.     Meta Space (compressed class space), committed
+  CCS Used      Meta Space (compressed class space), used
+  Code Res.     Reserved Code Cache
+  Code Comm.    Committed Code Cache
+
+Now
+Time                  WorkSet     Reserved    Avail       Java Res.   Java Comm.  Java Used   Malloc      Meta Res.   Meta Comm.  Meta Used   CCS Res.    CCS Comm.   CCS Used    Code Res.   Code Comm.  
+20:18:43              403.26 MB   431.83 MB   8.17 GB     1.00 GB     134.50 MB   85.46 MB    26.29 MB    8.00 MB     5.50 MB     5.31 MB     256.00 MB   768.00 KB   648.71 KB   256.00 MB   2.44 MB     
+
+Last 15 minutes
+Time                  WorkSet     Reserved    Avail       Java Res.   Java Comm.  Java Used   Malloc      Meta Res.   Meta Comm.  Meta Used   CCS Res.    CCS Comm.   CCS Used    Code Res.   Code Comm.  
+20:18:35              343.89 MB   373.90 MB   8.24 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:18:25              343.89 MB   373.90 MB   8.24 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:18:15              343.89 MB   373.90 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:18:05              343.89 MB   373.90 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:17:55              343.89 MB   373.90 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:17:45              343.89 MB   373.90 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:17:35              343.88 MB   373.88 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:17:25              343.88 MB   373.88 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:17:15              343.88 MB   373.88 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:17:05              343.88 MB   373.88 MB   8.23 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:16:55              343.88 MB   373.88 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:16:45              343.88 MB   373.88 MB   8.24 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:16:35              343.88 MB   373.88 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:16:25              343.88 MB   373.88 MB   8.24 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:16:15              343.88 MB   373.88 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:16:05              343.88 MB   373.88 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:15:55              343.88 MB   373.88 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:15:45              343.88 MB   373.88 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:15:35              343.88 MB   373.88 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:15:25              343.88 MB   373.88 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:15:15              343.88 MB   373.88 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:15:05              343.88 MB   373.88 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:14:55              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:14:45              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:14:35              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:14:25              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:14:15              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:14:05              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:13:55              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:13:45              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:13:35              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:13:25              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:13:15              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:13:05              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:12:55              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:12:45              343.91 MB   373.93 MB   8.27 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:12:35              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:12:25              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:12:15              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:12:05              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:11:55              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:11:45              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:11:35              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:11:25              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:11:15              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:11:05              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:10:55              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:10:45              343.91 MB   373.93 MB   8.27 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:10:35              343.91 MB   373.93 MB   8.27 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:10:25              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:10:15              343.91 MB   373.93 MB   8.24 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:10:05              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:09:55              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:09:45              343.91 MB   373.93 MB   8.27 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:09:35              343.91 MB   373.93 MB   8.27 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:09:25              343.91 MB   373.93 MB   8.27 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:09:15              343.91 MB   373.93 MB   8.27 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:09:05              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:08:55              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:08:45              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:08:35              343.91 MB   373.93 MB   8.24 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:08:25              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:08:15              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:08:05              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:07:55              343.91 MB   373.93 MB   8.28 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:07:45              343.91 MB   373.93 MB   8.28 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:07:35              343.91 MB   373.93 MB   8.29 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:07:25              343.91 MB   373.93 MB   8.29 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:07:15              343.91 MB   373.93 MB   8.29 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:07:05              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:06:55              343.91 MB   373.93 MB   8.24 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:06:45              343.91 MB   373.93 MB   8.30 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:06:35              343.91 MB   373.93 MB   8.30 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:06:25              343.91 MB   373.93 MB   8.28 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:06:15              343.91 MB   373.93 MB   8.28 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:06:05              343.91 MB   373.93 MB   8.28 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:05:55              343.91 MB   373.93 MB   8.29 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:05:45              343.91 MB   373.93 MB   8.30 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:05:35              343.91 MB   373.93 MB   8.25 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:05:25              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:05:15              343.91 MB   373.93 MB   8.23 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:05:05              343.91 MB   373.93 MB   8.26 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:04:55              343.91 MB   373.93 MB   8.30 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:04:45              343.91 MB   373.93 MB   8.30 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:04:35              343.91 MB   373.93 MB   8.30 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:04:25              343.91 MB   373.93 MB   8.30 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:04:15              343.91 MB   373.93 MB   8.30 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:04:05              343.91 MB   373.93 MB   8.30 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:03:55              343.91 MB   373.93 MB   8.30 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+20:03:45              343.91 MB   373.93 MB   8.30 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+
+Last 24 hours
+Time                  WorkSet     Reserved    Avail       Java Res.   Java Comm.  Java Used   Malloc      Meta Res.   Meta Comm.  Meta Used   CCS Res.    CCS Comm.   CCS Used    Code Res.   Code Comm.  
+20:10:15              343.91 MB   373.93 MB   8.24 GB     1.00 GB     134.50 MB   85.43 MB    26.23 MB    8.00 MB     5.50 MB     5.30 MB     256.00 MB   768.00 KB   648.22 KB   256.00 MB   2.44 MB     
+
+Last 4 weeks (max)
+(no samples taken yet)
+
+Peak (highest working set size during process life):
+20:18:43              403.26 MB   431.83 MB   8.17 GB     1.00 GB     134.50 MB   85.46 MB    26.29 MB    8.00 MB     5.50 MB     5.31 MB     256.00 MB   768.00 KB   648.71 KB   256.00 MB   2.44 MB     
+
+
+---------------  A P I   R E D I R E C T I O N   C H E C K  ---------
+::malloc            C:\WINDOWS\SYSTEM32\MSVCR100.dll
+::realloc           C:\WINDOWS\SYSTEM32\MSVCR100.dll
+::free              C:\WINDOWS\SYSTEM32\MSVCR100.dll
+::calloc            C:\WINDOWS\SYSTEM32\MSVCR100.dll
+::strdup            C:\WINDOWS\SYSTEM32\MSVCR100.dll
+::HeapAlloc         C:\WINDOWS\SYSTEM32\ntdll.dll
+::HeapReAlloc       C:\WINDOWS\SYSTEM32\ntdll.dll
+::HeapFree          C:\WINDOWS\System32\KERNEL32.DLL
+
+---------------  M A L L O C    S T A T I S T I C S  ---------
+
+
+Malloc Statistics enabled.
+Capture stopped.
+  ...started at VM startup 
+19:55:05.
+  ...stopped 20:18:42 - ran for 1417 seconds.
+
+
+Malloc Statistics by Call Site
+Columns: 
+  Size:      current outstanding bytes
+  Count:     current number of outstanding allocations
+  Delta Sz:  current outstanding bytes since last reset
+  Delta Cnt: current number of outstanding allocations since last reset
+  Peak Sz:   peak allocated bytes
+  Peak Cnt:  number of allocation when Peak Sz was measured
+  Invocs:    total number of allocations
+  Delta Inv: number of allocations since last reset
+(Ordered by currently allocated bytes)
+
+Size      Count     | Peak Sz   Peak Cnt  | Invocs    | Call Site
+5242880   5         | 5242880   5         | 5         | [076] class StarTask *__cdecl ArrayAllocator<class StarTask,1>::allocate(unsigned __int64)
+5242880   5         | 5242880   5         | 5         | [073] class oopDesc **__cdecl ArrayAllocator<class oopDesc *,5>::allocate(unsigned __int64)
+5242880   5         | 5242880   5         | 5         | [071] unsigned __int64 *__cdecl ArrayAllocator<unsigned __int64,7>::allocate(unsigned __int64)
+4055792   10        | 4055792   10        | 10        | [057] hotspot\src\share\vm\utilities/hashtable.inline.hpp:42
+1436832   72        | 1476744   74        | 1714      | [068] common/j2se/src/share/native/java/util/zip/zlib-1.2.8/zutil.c:343
+1048560   1         | 1048560   1         | 1         | [05A] hotspot/src/share/vm/sap/uniqueId.cpp:59
+973744    85        | 3896736   182       | 360       | [03C] HS  Arena Chunks
+700672    87        | 700672    87        | 87        | [058] hotspot/src/share/vm/utilities/hashtable.cpp:61
+655360    5         | 655360    5         | 5         | [074] class ObjArrayTask *__cdecl ArrayAllocator<class ObjArrayTask,5>::allocate(unsigned __int64)
+382917    4046      | 383069    4051      | 37890     | [011] hotspot\src\share\vm\memory/allocation.inline.hpp:114
+369712    2         | 1985584   13        | 620       | [02C] HS  Arena Special Chunks
+358640    37        | 358640    37        | 37        | [05E] common/j2se/src/share/native/java/util/zip/zip_util.c:720
+320000    1         | 320000    1         | 1         | [048] hotspot/src/share/vm/sap/hooks.cpp:2350
+320000    1         | 320000    1         | 1         | [046] hotspot/src/share/vm/sap/hooks.cpp:1623
+256000    1         | 256000    1         | 1         | [00B] hotspot/src/share/vm/utilities/events.cpp:447
+210376    473       | 210376    473       | 490       | [044] hotspot/src/share/vm/code/codeBlob.cpp:162
+106473    2858      | 268786    2880      | 20003     | [02D] hotspot\src\share\vm\prims/jvmtiEnvBase.hpp:189
+77688     22        | 89088     25        | 29        | [03B] hotspot/src/share/vm/runtime/thread.cpp:237
+65408     16        | 10011512  2449      | 27963     | [09F] hotspot\src\share\vm\utilities/stack.inline.hpp:142
+44868     37        | 44868     37        | 37        | [05F] common/j2se/src/share/native/java/util/zip/zip_util.c:722
+39312     847       | 39312     847       | 848       | [06A] hotspot/src/share/vm/oops/symbol.cpp:49
+39200     100       | 39200     100       | 100       | [03E] hotspot/src/share/vm/runtime/park.cpp:113
+38408     1         | 38408     1         | 1         | [0A2] hotspot/src/share/vm/prims/jvmtiTagMap.cpp:155
+37120     29        | 37120     29        | 29        | [0C8] hotspot/src/share/vm/interpreter/oopMapCache.cpp:492
+36864     1         | 36864     1         | 1         | [0A4] hotspot/src/share/vm/sap_monitoring/monitoringBoard.cpp:706
+33792     2         | 33792     2         | 2         | [056] hotspot/src/share/vm/memory/metaspace.cpp:564
+33792     2         | 33792     2         | 2         | [055] hotspot/src/share/vm/memory/metaspace.cpp:563
+27912     17        | 27912     17        | 17        | [079] hotspot\src\share\vm\runtime/objectMonitor.hpp:343
+27104     82        | 27888     84        | 132       | [0C6] hotspot\src\share\vm\sap/gcStatistic.hpp:207
+22968     174       | 22992     171       | 277       | [010] hotspot/src/share/vm/utilities/growableArray.cpp:57
+16416     27        | 17024     28        | 52        | [0C5] hotspot\src\share\vm\sap/gcStatistic.hpp:584
+10367     317       | 10367     317       | 317       | [061] common/j2se/src/share/native/java/util/zip/zip_util.c:522
+10264     42        | 10264     42        | 42        | [087] hotspot/src/share/vm/oops/instanceKlass.cpp:2065
+8192      1         | 8192      1         | 1         | [0C4] src/windows/native/java/net/SocketInputStream.c:94
+7243      255       | 7243      255       | 255       | [03F] hotspot/src/share/vm/runtime/perfData.cpp:87
+7104      37        | 7104      37        | 37        | [05B] common/j2se/src/share/native/java/util/zip/zip_util.c:240
+6096      8         | 6096      8         | 9         | [015] hotspot\src\share\vm\runtime/arguments.hpp:68
+5976      182       | 6200      189       | 270       | [00F] hotspot/src/share/vm/memory/allocation.cpp:97
+4544      1         | 4544      1         | 1         | [075] hotspot\src\share\vm\memory/padded.inline.hpp:39
+4532      6         | 4532      6         | 6         | [01B] hotspot/src/share/vm/runtime/arguments.cpp:2203
+3826      37        | 3826      37        | 37        | [05C] common/j2se/src/share/native/java/util/zip/zip_util.c:241
+3712      32        | 3712      32        | 89        | [0AB] common/j2se/src/share/native/java/util/zip/zip_util.c:494
+3168      36        | 3168      36        | 36        | [0AD] common/j2se/src/share/native/java/util/zip/Inflater.c:90
+2960      37        | 3040      38        | 872       | [065] common/j2se/src/share/native/java/util/zip/zip_util.c:1229
+2920      49        | 3336      56        | 156       | [02B] hotspot/src/share/vm/memory/allocation.cpp:593
+2832      1         | 14160     5         | 51        | [0B2] hotspot/src/share/vm/runtime/deoptimization.cpp:137
+2728      1         | 2728      1         | 1         | [054] hotspot/src/share/vm/gc_implementation/parallelScavenge/parallelScavengeHeap.cpp:157
+1864      1         | 9584      5         | 51        | [0AF] hotspot/src/share/vm/runtime/vframeArray.cpp:465
+1232      22        | 1400      25        | 29        | [03D] hotspot/src/share/vm/runtime/handles.cpp:193
+1089      58        | 1089      58        | 58        | [069] hotspot/src/share/vm/classfile/classLoader.cpp:1145
+1024      1         | 1024      1         | 1         | [00A] hotspot/src/os/windows/vm/os_windows.cpp:5028
+960       2         | 960       2         | 2         | [06B] hotspot/src/share/vm/memory/referenceProcessor.cpp:117
+860       3         | 860       3         | 3         | [017] hotspot/src/share/vm/runtime/os.cpp:1210
+825       37        | 898       38        | 872       | [067] common/j2se/src/share/native/java/util/zip/zip_util.c:1264
+800       1         | 800       1         | 1         | [0CD] hotspot/src/share/vm/sap/gcCommon.cpp:1347
+800       1         | 800       1         | 1         | [0CC] hotspot/src/share/vm/sap/gcCommon.cpp:1346
+768       4         | 768       4         | 4         | [078] hotspot/src/share/vm/services/memoryManager.cpp:186
+768       4         | 768       4         | 4         | [077] hotspot/src/share/vm/services/memoryManager.cpp:185
+720       5         | 720       5         | 5         | [0CA] hotspot/src/share/vm/sap/gcCommon.cpp:149
+661       47        | 661       47        | 47        | [042] hotspot/src/share/vm/classfile/classLoader.cpp:620
+528       33        | 528       33        | 33        | [0C3] hotspot/src/share/vm/classfile/loaderConstraints.cpp:225
+477       25        | 477       25        | 25        | [012] hotspot\src\share\vm\runtime/arguments.hpp:107
+436       5         | 436       5         | 5         | [041] hotspot/src/share/vm/classfile/classLoader.cpp:406
+376       4         | 376       4         | 4         | [043] hotspot/src/share/vm/classfile/classLoader.cpp:191
+320       5         | 320       5         | 5         | [053] hotspot/src/share/vm/runtime/thread.cpp:1859
+260       1         | 260       1         | 1         | [024] hotspot/src/share/vm/runtime/arguments.cpp:5685
+209       17        | 234       13        | 19        | [013] hotspot\src\share\vm\runtime/arguments.hpp:114
+160       1         | 160       1         | 1         | [095] HS  D:\depot\bas\sapjvm\81_REL\src\common\libs\sapjvm_inspector\shared\fileSocket.hpp:170
+154       1         | 154       1         | 1         | [086] src/windows/native/java/lang/java_props_md.c:723
+128       4         | 128       4         | 4         | [072] hotspot\src\share\vm\utilities/taskqueue.hpp:520
+120       5         | 120       5         | 5         | [0C9] hotspot/src/share/vm/sap/gcCommon.cpp:144
+112       1         | 112       1         | 1         | [02F] common/j2se/src/share/npt/npt.c:57
+104       1         | 104       1         | 1         | [028] hotspot/src/share/vm/runtime/arguments.cpp:5910
+96        2         | 96        2         | 2         | [049] hotspot/src/share/vm/memory/memRegion.cpp:111
+84        1         | 84        1         | 1         | [064] hotspot/src/share/vm/classfile/classLoader.cpp:332
+84        4         | 84        4         | 4         | [04F] hotspot/src/share/vm/gc_implementation/shared/spaceCounters.cpp:46
+80        5         | 80        5         | 37        | [060] common/j2se/src/share/native/java/util/zip/zip_util.c:513
+74        2         | 244       7         | 17        | [094] HS  D:/depot/bas/sapjvm/81_REL/src/6/hotspot/../../common/libs/sapjvm_inspector/shared/cstring.cpp:45
+74        1         | 74        1         | 1         | [07C] src/windows/native/java/lang/java_props_md.c:366
+64        1         | 64        1         | 1         | [097] class MonitoringBoardLateInitializeHook **__cdecl Vector<class MonitoringBoardLateInitializeHook *>::do_alloc_n(int)
+64        1         | 64        1         | 1         | [096] class MonitoringBoardUpdateHook **__cdecl Vector<class MonitoringBoardUpdateHook *>::do_alloc_n(int)
+64        4         | 64        4         | 4         | [085] src/windows/native/java/lang/java_props_md.c:67
+64        1         | 64        1         | 1         | [047] class SocketMetaData **__cdecl Vector<class SocketMetaData *>::do_alloc_n(int)
+64        1         | 64        1         | 1         | [045] class FileMetaData **__cdecl Vector<class FileMetaData *>::do_alloc_n(int)
+64        4         | 77        4         | 6         | [01A] hotspot/src/share/vm/runtime/arguments.cpp:2196
+64        1         | 64        1         | 1         | [00D] class ControlArea **__cdecl Vector<class ControlArea *>::do_alloc_n(int)
+56        2         | 4048      3         | 324       | [00C] hotspot/src/share/vm/sap/string.cpp:190
+54        1         | 54        1         | 1         | [020] hotspot\src\share\vm\runtime/arguments.hpp:166
+54        1         | 54        1         | 1         | [01E] hotspot/src/share/vm/runtime/arguments.cpp:4554
+44        1         | 88        2         | 2         | [006] hotspot/src/os/windows/vm/os_windows.cpp:4651
+40        1         | 40        1         | 1         | [06F] hotspot/src/share/vm/gc_implementation/parallelScavenge/psCompactionManager.cpp:93
+40        1         | 40        1         | 1         | [06E] hotspot/src/share/vm/gc_implementation/parallelScavenge/psCompactionManager.cpp:89
+40        1         | 40        1         | 1         | [009] hotspot/src/os/windows/vm/os_windows.cpp:4997
+40        1         | 40        1         | 1         | [007] hotspot/src/os/windows/vm/os_windows.cpp:4836
+40        1         | 40        1         | 1         | [002] hotspot/src/os/windows/vm/os_windows.cpp:4752
+37        1         | 37        1         | 1         | [0A1] hotspot/src/share/vm/utilities/vmError.cpp:3013
+32        1         | 56        1         | 10        | [0A3] hotspot/src/share/vm/prims/jvmtiImpl.cpp:96
+32        2         | 32        2         | 2         | [06C] hotspot/src/share/vm/memory/referenceProcessor.cpp:141
+32        1         | 32        1         | 1         | [052] hotspot/src/share/vm/gc_implementation/parallelScavenge/gcTaskManager.cpp:424
+32        1         | 32        1         | 3         | [021] hotspot/src/share/vm/runtime/arguments.cpp:2028
+27        3         | 27        3         | 3         | [084] src/windows/native/java/lang/java_props_md.c:323
+27        3         | 27        3         | 3         | [083] src/windows/native/java/lang/java_props_md.c:309
+27        3         | 27        3         | 3         | [082] src/windows/native/java/lang/java_props_md.c:297
+27        3         | 27        3         | 3         | [081] src/windows/native/java/lang/java_props_md.c:285
+26        3         | 172       4         | 35        | [08A] hotspot/src/share/vm/sap/sapjvm.cpp:1701
+26        2         | 26        2         | 2         | [04E] hotspot/src/share/vm/gc_implementation/parallelScavenge/psGenerationCounters.cpp:46
+24        2         | 24        2         | 2         | [06D] hotspot/src/share/vm/gc_implementation/shared/collectorCounters.cpp:40
+24        1         | 24        1         | 1         | [04C] hotspot/src/share/vm/memory/cardTableModRefBS.cpp:142
+24        1         | 24        1         | 1         | [04B] hotspot/src/share/vm/memory/cardTableModRefBS.cpp:140
+24        1         | 24        1         | 1         | [04A] hotspot/src/share/vm/memory/cardTableModRefBS.cpp:138
+24        1         | 24        1         | 1         | [008] hotspot/src/os/windows/vm/os_windows.cpp:4993
+24        1         | 24        1         | 1         | [001] hotspot/src/os/windows/vm/os_windows.cpp:4748
+16        1         | 104       5         | 51        | [0B1] hotspot/src/share/vm/runtime/deoptimization.cpp:363
+16        1         | 16        1         | 1         | [080] src/windows/native/java/lang/java_props_md.c:593
+16        1         | 16        1         | 1         | [070] hotspot/src/share/vm/gc_implementation/parallelScavenge/psCompactionManager.cpp:96
+12        1         | 12        1         | 1         | [04D] hotspot/src/share/vm/memory/cardTableModRefBS.cpp:144
+8         1         | 64        5         | 51        | [0B0] hotspot/src/share/vm/runtime/deoptimization.cpp:361
+5         1         | 5         1         | 1         | [07F] src/windows/native/java/lang/java_props_md.c:558
+5         1         | 5         1         | 1         | [026] hotspot/src/share/vm/runtime/globals.cpp:1142
+5         1         | 5         1         | 1         | [01F] hotspot\src\share\vm\runtime/arguments.hpp:160
+5         1         | 5         1         | 1         | [01D] hotspot/src/share/vm/runtime/arguments.cpp:4548
+4         1         | 4         1         | 1         | [050] hotspot/src/share/vm/gc_implementation/parallelScavenge/gcTaskManager.cpp:412
+4         1         | 4         1         | 1         | [030] common/j2se/src/windows/npt/utf_md.c:43
+1         1         | 1         1         | 1         | [07D] src/windows/native/java/lang/java_props_md.c:394
+1         1         | 1         1         | 1         | [003] hotspot/src/os/windows/vm/os_windows.cpp:4757
+0         0         | 8         1         | 1         | [0D1] hotspot/src/share/vm/prims/jvmtiRedefineClasses.cpp:937
+0         0         | 16        1         | 8         | [0D0] hotspot/src/share/vm/runtime/monitorChunk.cpp:33
+0         0         | 3399      1         | 3         | [0CF] hotspot/src/share/vm/prims/unsafe.cpp:1126
+0         0         | 1104      1         | 89        | [0CE] hotspot/src/share/vm/prims/unsafe.cpp:1268
+0         0         | 96        1         | 32        | [0CB] hotspot/src/share/vm/runtime/sharedRuntime.cpp:3199
+0         0         | 64        1         | 71        | [0C7] class ProfilingControl **__cdecl Vector<class ProfilingControl *>::do_alloc_n(int)
+0         0         | 4032      2         | 16        | [0C2] src/share/native/common/check_code.c:3631
+0         0         | 103800    19        | 54        | [0C1] src/share/native/common/check_code.c:3620
+0         0         | 3         1         | 233       | [0C0] src/share/native/common/check_code.c:1122
+0         0         | 744       31        | 4817      | [0BF] src/share/native/common/check_code.c:4198
+0         0         | 2785      44        | 233       | [0BE] src/share/native/common/check_code.c:975
+0         0         | 20        1         | 23        | [0BD] src/share/native/common/check_code.c:855
+0         0         | 352       1         | 35        | [0BC] src/share/native/common/check_code.c:966
+0         0         | 176       1         | 35        | [0BB] src/share/native/common/check_code.c:963
+0         0         | 87        3         | 40        | [0BA] src/share/native/common/check_code.c:640
+0         0         | 1572      48        | 383       | [0B9] src/share/native/common/check_code.c:703
+0         0         | 8192      1         | 35        | [0B8] src/share/native/common/check_code.c:541
+0         0         | 734       1         | 35        | [0B7] src/share/native/common/check_code.c:810
+0         0         | 1006      1         | 35        | [0B6] src/share/native/common/check_code.c:495
+0         0         | 2048      1         | 35        | [0B5] src/share/native/common/check_code.c:493
+0         0         | 2016      1         | 35        | [0B4] src/share/native/common/check_code.c:3569
+0         0         | 18161     2         | 42        | [0B3] src/share/native/java/lang/ClassLoader.c:122
+0         0         | 40        1         | 26        | [0AE] hotspot/src/share/vm/interpreter/oopMapCache.cpp:632
+0         0         | 4         1         | 36        | [0AC] hotspot/src/share/vm/prims/jni.cpp:3718
+0         0         | 24        1         | 2         | [0AA] HS  D:/depot/bas/sapjvm/81_REL/src/6/hotspot/../../common/libs/sapjvm_inspector/windows/security_windows.cpp:341
+0         0         | 88        1         | 2         | [0A9] HS  D:/depot/bas/sapjvm/81_REL/src/6/hotspot/../../common/libs/sapjvm_inspector/windows/security_windows.cpp:200
+0         0         | 40        1         | 2         | [0A8] HS  D:/depot/bas/sapjvm/81_REL/src/6/hotspot/../../common/libs/sapjvm_inspector/windows/security_windows.cpp:323
+0         0         | 28        1         | 2         | [0A7] HS  D:/depot/bas/sapjvm/81_REL/src/6/hotspot/../../common/libs/sapjvm_inspector/windows/security_windows.cpp:112
+0         0         | 44        1         | 2         | [0A6] HS  D:/depot/bas/sapjvm/81_REL/src/6/hotspot/../../common/libs/sapjvm_inspector/windows/security_windows.cpp:101
+0         0         | 71        2         | 2         | [0A5] HS  D:/depot/bas/sapjvm/81_REL/src/6/hotspot/../../common/libs/sapjvm_inspector/shared/cstring.cpp:82
+0         0         | 37        1         | 1         | [0A0] hotspot/src/share/vm/utilities/vmError.cpp:2936
+0         0         | 56        1         | 2         | [09E] hotspot/src/share/vm/sap/string.cpp:825
+0         0         | 512       1         | 1         | [09D] struct VirtPlatform::KeyValuePair *__cdecl Vector<struct VirtPlatform::KeyValuePair>::do_alloc_n(int)
+0         0         | 134       4         | 4         | [09C] hotspot\src\share\vm\sap/ownedString.hpp:132
+0         0         | 67        2         | 2         | [09B] hotspot\src\share\vm\sap/ownedString.hpp:142
+0         0         | 1868      1         | 1         | [09A] hotspot/src/os/windows/vm/os_windows.cpp:2284
+0         0         | 256       1         | 1         | [099] hotspot/src/share/vm/utilities/ostream.cpp:1604
+0         0         | 256       1         | 1         | [098] struct Pair<class OwnedString,class OwnedString> *__cdecl Vector<struct Pair<class OwnedString,class OwnedString> >::do_alloc_n(int)
+0         0         | 174       1         | 6         | [093] common/j2se/src/windows/native/java/io/WinNTFileSystem_md.c:680
+0         0         | 2048      1         | 46        | [092] common/j2se/src/windows/native/java/io/canonicalize_md.c:424
+0         0         | 260       1         | 1         | [091] common/j2se/src/windows/native/java/io/io_util_md.c:85
+0         0         | 352       1         | 489       | [090] common/j2se/src/windows/native/java/io/io_util_md.c:247
+0         0         | 364       2         | 559       | [08F] hotspot/src/share/vm/prims/jni.cpp:3329
+0         0         | 28        1         | 14        | [08E] src/share/native/java/lang/ClassLoader.c:348
+0         0         | 18        1         | 4         | [08D] src/share/native/java/lang/ClassLoader.c:531
+0         0         | 148       1         | 43        | [08C] src/share/native/common/jni_util.c:657
+0         0         | 8         1         | 1         | [08B] hotspot/src/share/vm/prims/unsafe.cpp:818
+0         0         | 7980      1         | 3         | [089] src/share/native/common/jni_util.c:624
+0         0         | 260       1         | 1         | [088] src/windows/native/common/jni_util_md.c:56
+0         0         | 1868      1         | 1         | [07E] src/windows/native/java/lang/java_props_md.c:426
+0         0         | 77        1         | 86        | [07B] hotspot/src/share/vm/prims/jni.cpp:3438
+0         0         | 2         1         | 1         | [07A] hotspot/src/share/vm/runtime/objectMonitor.cpp:2727
+0         0         | 160       1         | 872       | [066] common/j2se/src/share/native/java/util/zip/zip_util.c:1151
+0         0         | 148       1         | 37        | [063] hotspot/src/share/vm/sap/os_sap.cpp:899
+0         0         | 294       1         | 37        | [062] hotspot/src/share/vm/sap/os_sap.cpp:886
+0         0         | 1965121   1         | 37        | [05D] common/j2se/src/share/native/java/util/zip/zip_util.c:696
+0         0         | 64        1         | 956       | [059] unsigned __int64 *__cdecl Vector<unsigned __int64>::do_alloc_n(int)
+0         0         | 16        1         | 1         | [051] hotspot/src/share/vm/gc_implementation/parallelScavenge/gcTaskManager.cpp:417
+0         0         | 3         1         | 1         | [040] hotspot/src/share/vm/services/diagnosticArgument.cpp:160
+0         0         | 72        3         | 3         | [03A] hotspot/src/os/windows/vm/perfMemory_windows.cpp:1100
+0         0         | 264       3         | 3         | [039] hotspot/src/os/windows/vm/perfMemory_windows.cpp:936
+0         0         | 120       3         | 3         | [038] hotspot/src/os/windows/vm/perfMemory_windows.cpp:1078
+0         0         | 28        1         | 3         | [037] hotspot/src/os/windows/vm/perfMemory_windows.cpp:843
+0         0         | 44        1         | 3         | [036] hotspot/src/os/windows/vm/perfMemory_windows.cpp:829
+0         0         | 1         1         | 1         | [035] hotspot/src/os/windows/vm/perfMemory_windows.cpp:661
+0         0         | 30        1         | 1         | [034] hotspot/src/os/windows/vm/perfMemory_windows.cpp:475
+0         0         | 67        1         | 1         | [033] hotspot/src/os/windows/vm/perfMemory_windows.cpp:491
+0         0         | 56        1         | 1         | [032] hotspot/src/os/windows/vm/perfMemory_windows.cpp:161
+0         0         | 8         1         | 1         | [031] hotspot/src/os/windows/vm/perfMemory_windows.cpp:295
+0         0         | 77        1         | 2         | [02E] common/j2se/src/windows/back/linker_md.c:48
+0         0         | 22        1         | 4         | [02A] hotspot/src/os/windows/vm/os_windows.cpp:9008
+0         0         | 10        1         | 1         | [029] HS  generic os::strdup
+0         0         | 4280      2         | 24        | [027] hotspot/src/share/vm/sap/string.cpp:227
+0         0         | 384       4         | 124       | [025] hotspot\src\share\vm\sap/utils_buffer.hpp:139
+0         0         | 90        1         | 2         | [023] hotspot/src/os/windows/vm/os_windows.cpp:1586
+0         0         | 600       1         | 2         | [022] hotspot/src/os/windows/vm/os_windows.cpp:1564
+0         0         | 8         1         | 1         | [01C] hotspot/src/share/vm/runtime/arguments.cpp:2026
+0         0         | 86        1         | 1         | [019] hotspot/src/os/windows/vm/os_windows.cpp:476
+0         0         | 2087      1         | 1         | [018] hotspot/src/os/windows/vm/os_windows.cpp:426
+0         0         | 77        1         | 1         | [016] hotspot/src/os/windows/vm/os_windows.cpp:386
+0         0         | 73        1         | 1         | [014] hotspot/src/os/windows/vm/os_windows.cpp:376
+0         0         | 256       1         | 2         | [00E] hotspot/src/share/vm/sap/controlArea.cpp:851
+0         0         | 144       1         | 1         | [005] hotspot/src/os/windows/vm/os_windows.cpp:4778
+0         0         | 768       3         | 6         | [004] class UTF8String *__cdecl Vector<class UTF8String>::do_alloc_n(int)
+0         0         | 0         0         | 0         | [000] HS  Unknown
+-------------------------------------------------------------------------
+Total outstanding bytes:                 27568704
+Total number of outstanding allocations: 10463
+Total number of invocations:             104450
+
+Internal memory usage - now: 1968400 bytes on 33 allocations.
+                      - max: 1968400 bytes on 33 allocations.
+
+call site table: 210 slots (max: 2048)
+
+Allocation Context Lookup Map:
+  Capacity            8192
+  Entries             209
+  Load                0.03
+  Displaced Entries   4
+  Avg Distance for displaced Entries  1.00
+
+Malloc hash map: 
+seg no.   Entries   Buckets   In Use    Avg Chain Len  Max Chain Len  Memory Used
+0         658       1024      487       1.35           4              122904
+1         645       1024      480       1.34           3              122904
+2         659       1024      484       1.36           4              122904
+3         650       1024      462       1.41           4              122904
+4         670       1024      481       1.39           5              122904
+5         658       1024      498       1.32           4              122904
+6         666       1024      493       1.35           5              122904
+7         655       1024      490       1.34           4              122904
+8         654       1024      477       1.37           5              122904
+9         652       1024      476       1.37           4              122904
+10        654       1024      477       1.37           5              122904
+11        647       1024      494       1.31           5              122904
+12        651       1024      481       1.35           4              122904
+13        646       1024      475       1.36           5              122904
+14        659       1024      490       1.34           4              122904
+15        639       1024      492       1.30           4              122904
+
+Internal Statistics:
+(unavailable)
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 14393 (10.0.14393.1198)
+load average:0.23 0.22 0.26
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 78 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+No or unknown virtual computing platform.
+
+
+Memory: 4k page, physical 16605704k(8564944k free), swap 18113032k(9213104k free), virtual 4294967168k(4293077412k free)
+
+7 Process Heaps: 
+  Heap ID: 1 0x00000000013d0000default  low frag    
+  Heap ID: 2 0x0000000000e70000         standard    
+  Heap ID: 3 0x0000000001750000         low frag    
+  Heap ID: 4 0x0000000002f10000         low frag    
+  Heap ID: 5 0x00000000030a0000         low frag    
+  Heap ID: 6 0x00000000031f0000crt      low frag    
+  Heap ID: 7 0x00000000034c0000         low frag    
+
+Debugging has been started: no
+Restricted debugging has been started: no
+
+hostname: PHXN00640420A
+
+
+---------------  A L E R T S ---------------
+
+No alert for: Spurious wakeup
+No alert for: OutOfMemoryError
+No alert for: Thread.stop()
+No alert for: StackOverflowError
+No alert for: Profiling started
+No alert for: Profiling stopped
+Debugging started: 1 occurances
+    Time: 0.23 s
+    Info: Connected to localhost on port 65052
+No alert for: Debugging stopped
+No alert for: Rainy Day Fund used
+No alert for: UnsatisfiedLinkError
+No alert for: Java assert
+No alert for: InternalError
+No alert for: JIT stopped
+No alert for: JIT restarted
+No alert for: Code cache flushing
+No alert for: Code cache is full
+No alert for: Native thread creation failed
+
+
+The rainy day fund is not set and has never been used.
+
+
+-------- F L I G H T R E C O R D E R --------
+
+[Last 4000 events in the event buffer]
+  <thread>                      <time>  <id>          <description>
+ 5956                          1417.96  0x000018e3    Dumping flight recorder
+ 5956                          1416.79  0x000018e2    CRASH: thread 0x0000000016fbc000 pc 0x000000006c1b8018
+ 10560                         1416.79  0x000018e1    done 0x000018db
+ 10560                         1416.79  0x000018e0    | VM state (end safepoint): not at safepoint
+ 10560                         1416.79  0x000018df    | done 0x000018de
+ 10560                         1416.78  0x000018de    | Evaluating VM operation: RedefineClasses
+ 10560                         1416.78  0x000018dd    | VM state (begin safepoint): at standard safepoint
+ 10560                         1416.78  0x000018dc    | VM state (begin safepoint): synchronizing
+ 10560                         1416.78  0x000018db    Executing VM operation: RedefineClasses
+ 5956                          1416.78  0x000018da    Successfully defined class 'edu/coursera/parallel/StudentAnalytics'
+ 5956                          1416.78  0x000018d9    Defining class 'edu/coursera/parallel/StudentAnalytics' with 5181 bytes
+ 10560                         1351.59  0x000018d8    done 0x000018d2
+ 10560                         1351.59  0x000018d7    | VM state (end safepoint): not at safepoint
+ 10560                         1351.59  0x000018d6    | done 0x000018d5
+ 10560                         1351.59  0x000018d5    | Evaluating VM operation: ChangeBreakpoints
+ 10560                         1351.59  0x000018d4    | VM state (begin safepoint): at standard safepoint
+ 10560                         1351.59  0x000018d3    | VM state (begin safepoint): synchronizing
+ 10560                         1351.59  0x000018d2    Executing VM operation: ChangeBreakpoints
+ 10560                         1351.59  0x000018d1    done 0x000018cb
+ 10560                         1351.59  0x000018d0    | VM state (end safepoint): not at safepoint
+ 10560                         1351.59  0x000018cf    | done 0x000018ce
+ 10560                         1351.59  0x000018ce    | Evaluating VM operation: ChangeBreakpoints
+ 10560                         1351.59  0x000018cd    | VM state (begin safepoint): at standard safepoint
+ 10560                         1351.59  0x000018cc    | VM state (begin safepoint): synchronizing
+ 10560                         1351.59  0x000018cb    Executing VM operation: ChangeBreakpoints
+ 10560                           46.30  0x000018ca    done 0x000018c4
+ 10560                           46.30  0x000018c9    | VM state (end safepoint): not at safepoint
+ 10560                           46.30  0x000018c8    | done 0x000018c7
+ 10560                           46.30  0x000018c7    | Evaluating VM operation: GetFrameCount
+ 10560                           46.30  0x000018c6    | VM state (begin safepoint): at standard safepoint
+ 10560                           46.30  0x000018c5    | VM state (begin safepoint): synchronizing
+ 10560                           46.30  0x000018c4    Executing VM operation: GetFrameCount
+ 10560                           46.28  0x000018c3    done 0x000018bd
+ 10560                           46.28  0x000018c2    | VM state (end safepoint): not at safepoint
+ 10560                           46.28  0x000018c1    | done 0x000018c0
+ 10560                           46.28  0x000018c0    | Evaluating VM operation: GetFrameCount
+ 10560                           46.28  0x000018bf    | VM state (begin safepoint): at standard safepoint
+ 10560                           46.28  0x000018be    | VM state (begin safepoint): synchronizing
+ 10560                           46.28  0x000018bd    Executing VM operation: GetFrameCount
+ 10560                           46.05  0x000018bc    done 0x000018b6
+ 10560                           46.05  0x000018bb    | VM state (end safepoint): not at safepoint
+ 10560                           46.05  0x000018ba    | done 0x000018b9
+ 10560                           46.05  0x000018b9    | Evaluating VM operation: get/set locals
+ 10560                           46.05  0x000018b8    | VM state (begin safepoint): at standard safepoint
+ 10560                           46.05  0x000018b7    | VM state (begin safepoint): synchronizing
+ 10560                           46.05  0x000018b6    Executing VM operation: get/set locals
+ 10560                           46.05  0x000018b5    done 0x000018af
+ 10560                           46.05  0x000018b4    | VM state (end safepoint): not at safepoint
+ 10560                           46.05  0x000018b3    | done 0x000018b2
+ 10560                           46.05  0x000018b2    | Evaluating VM operation: GetFrameLocation
+ 10560                           46.05  0x000018b1    | VM state (begin safepoint): at standard safepoint
+ 10560                           46.05  0x000018b0    | VM state (begin safepoint): synchronizing
+ 10560                           46.05  0x000018af    Executing VM operation: GetFrameLocation
+ 10560                           46.03  0x000018ae    done 0x000018a8
+ 10560                           46.03  0x000018ad    | VM state (end safepoint): not at safepoint
+ 10560                           46.03  0x000018ac    | done 0x000018ab
+ 10560                           46.03  0x000018ab    | Evaluating VM operation: GetFrameCount
+ 10560                           46.03  0x000018aa    | VM state (begin safepoint): at standard safepoint
+ 10560                           46.03  0x000018a9    | VM state (begin safepoint): synchronizing
+ 10560                           46.03  0x000018a8    Executing VM operation: GetFrameCount
+ 10560                           46.03  0x000018a7    done 0x000018a1
+ 10560                           46.03  0x000018a6    | VM state (end safepoint): not at safepoint
+ 10560                           46.03  0x000018a5    | done 0x000018a4
+ 10560                           46.03  0x000018a4    | Evaluating VM operation: GetFrameCount
+ 10560                           46.03  0x000018a3    | VM state (begin safepoint): at standard safepoint
+ 10560                           46.03  0x000018a2    | VM state (begin safepoint): synchronizing
+ 10560                           46.03  0x000018a1    Executing VM operation: GetFrameCount
+ 10560                           46.02  0x000018a0    done 0x0000189a
+ 10560                           46.02  0x0000189f    | VM state (end safepoint): not at safepoint
+ 10560                           46.02  0x0000189e    | done 0x0000189d
+ 10560                           46.01  0x0000189d    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           46.01  0x0000189c    | VM state (begin safepoint): at standard safepoint
+ 10560                           46.01  0x0000189b    | VM state (begin safepoint): synchronizing
+ 10560                           46.01  0x0000189a    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           46.01  0x00001899    done 0x00001893
+ 10560                           46.01  0x00001898    | VM state (end safepoint): not at safepoint
+ 10560                           46.01  0x00001897    | done 0x00001896
+ 10560                           46.00  0x00001896    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           46.00  0x00001895    | VM state (begin safepoint): at standard safepoint
+ 10560                           46.00  0x00001894    | VM state (begin safepoint): synchronizing
+ 10560                           46.00  0x00001893    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           45.99  0x00001892    done 0x0000188c
+ 10560                           45.99  0x00001891    | VM state (end safepoint): not at safepoint
+ 10560                           45.99  0x00001890    | done 0x0000188f
+ 10560                           45.98  0x0000188f    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           45.98  0x0000188e    | VM state (begin safepoint): at standard safepoint
+ 10560                           45.98  0x0000188d    | VM state (begin safepoint): synchronizing
+ 10560                           45.98  0x0000188c    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           45.97  0x0000188b    done 0x00001885
+ 10560                           45.97  0x0000188a    | VM state (end safepoint): not at safepoint
+ 10560                           45.97  0x00001889    | done 0x00001888
+ 10560                           45.96  0x00001888    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           45.96  0x00001887    | VM state (begin safepoint): at standard safepoint
+ 10560                           45.96  0x00001886    | VM state (begin safepoint): synchronizing
+ 10560                           45.96  0x00001885    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           45.96  0x00001884    done 0x0000187e
+ 10560                           45.96  0x00001883    | VM state (end safepoint): not at safepoint
+ 10560                           45.96  0x00001882    | done 0x00001881
+ 10560                           45.95  0x00001881    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           45.95  0x00001880    | VM state (begin safepoint): at standard safepoint
+ 10560                           45.95  0x0000187f    | VM state (begin safepoint): synchronizing
+ 10560                           45.95  0x0000187e    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           45.95  0x0000187d    done 0x00001877
+ 10560                           45.95  0x0000187c    | VM state (end safepoint): not at safepoint
+ 10560                           45.95  0x0000187b    | done 0x0000187a
+ 10560                           45.94  0x0000187a    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           45.94  0x00001879    | VM state (begin safepoint): at standard safepoint
+ 10560                           45.94  0x00001878    | VM state (begin safepoint): synchronizing
+ 10560                           45.94  0x00001877    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           45.94  0x00001876    done 0x00001870
+ 10560                           45.94  0x00001875    | VM state (end safepoint): not at safepoint
+ 10560                           45.94  0x00001874    | done 0x00001873
+ 10560                           45.93  0x00001873    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           45.93  0x00001872    | VM state (begin safepoint): at standard safepoint
+ 10560                           45.93  0x00001871    | VM state (begin safepoint): synchronizing
+ 10560                           45.93  0x00001870    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           45.93  0x0000186f    done 0x00001861
+ 10560                           45.93  0x0000186e    | VM state (end safepoint): not at safepoint
+ 10560                           45.93  0x0000186d    | done 0x00001864
+ 10560                           45.93  0x0000186c    | | done 0x0000186b
+ 10560                           45.68  0x0000186b    | | 5 compact
+ 10560                           45.68  0x0000186a    | | done 0x00001869
+ 10560                           45.68  0x00001869    | | 3 adjust roots
+ 10560                           45.68  0x00001868    | | done 0x00001867
+ 10560                           45.68  0x00001867    | | 2 summarize
+ 10560                           45.68  0x00001866    | | done 0x00001865
+ 10560                           45.60  0x00001865    | | 1 mark object
+ 10560                           45.49  0x00001864    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           45.49  0x00001863    | VM state (begin safepoint): at standard safepoint
+ 10560                           45.49  0x00001862    | VM state (begin safepoint): synchronizing
+ 10560                           45.49  0x00001861    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           45.49  0x00001860    done 0x0000185a
+ 10560                           45.49  0x0000185f    | VM state (end safepoint): not at safepoint
+ 10560                           45.49  0x0000185e    | done 0x0000185d
+ 10560                           45.37  0x0000185d    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           45.37  0x0000185c    | VM state (begin safepoint): at standard safepoint
+ 10560                           45.37  0x0000185b    | VM state (begin safepoint): synchronizing
+ 10560                           45.37  0x0000185a    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           45.37  0x00001859    done 0x00001853
+ 10560                           45.37  0x00001858    | VM state (end safepoint): not at safepoint
+ 10560                           45.37  0x00001857    | done 0x00001856
+ 10560                           45.25  0x00001856    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           45.25  0x00001855    | VM state (begin safepoint): at standard safepoint
+ 10560                           45.25  0x00001854    | VM state (begin safepoint): synchronizing
+ 10560                           45.25  0x00001853    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           45.25  0x00001852    done 0x0000184c
+ 10560                           45.25  0x00001851    | VM state (end safepoint): not at safepoint
+ 10560                           45.25  0x00001850    | done 0x0000184f
+ 10560                           45.14  0x0000184f    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           45.14  0x0000184e    | VM state (begin safepoint): at standard safepoint
+ 10560                           45.14  0x0000184d    | VM state (begin safepoint): synchronizing
+ 10560                           45.14  0x0000184c    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           45.14  0x0000184b    done 0x00001845
+ 10560                           45.14  0x0000184a    | VM state (end safepoint): not at safepoint
+ 10560                           45.14  0x00001849    | done 0x00001848
+ 10560                           45.03  0x00001848    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           45.03  0x00001847    | VM state (begin safepoint): at standard safepoint
+ 10560                           45.03  0x00001846    | VM state (begin safepoint): synchronizing
+ 10560                           45.03  0x00001845    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           45.01  0x00001844    done 0x0000183e
+ 10560                           45.01  0x00001843    | VM state (end safepoint): not at safepoint
+ 10560                           45.01  0x00001842    | done 0x00001841
+ 10560                           44.91  0x00001841    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           44.91  0x00001840    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.91  0x0000183f    | VM state (begin safepoint): synchronizing
+ 10560                           44.91  0x0000183e    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           44.90  0x0000183d    done 0x00001837
+ 10560                           44.90  0x0000183c    | VM state (end safepoint): not at safepoint
+ 10560                           44.90  0x0000183b    | done 0x0000183a
+ 10560                           44.82  0x0000183a    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           44.82  0x00001839    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.82  0x00001838    | VM state (begin safepoint): synchronizing
+ 10560                           44.82  0x00001837    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           44.80  0x00001836    done 0x00001830
+ 10560                           44.80  0x00001835    | VM state (end safepoint): not at safepoint
+ 10560                           44.80  0x00001834    | done 0x00001833
+ 10560                           44.74  0x00001833    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           44.74  0x00001832    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.74  0x00001831    | VM state (begin safepoint): synchronizing
+ 10560                           44.74  0x00001830    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           44.71  0x0000182f    done 0x00001829
+ 10560                           44.71  0x0000182e    | VM state (end safepoint): not at safepoint
+ 10560                           44.71  0x0000182d    | done 0x0000182c
+ 10560                           44.68  0x0000182c    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           44.68  0x0000182b    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.68  0x0000182a    | VM state (begin safepoint): synchronizing
+ 10560                           44.68  0x00001829    Executing VM operation: ParallelGCFailedAllocation
+ 10560                           44.65  0x00001828    done 0x00001822
+ 10560                           44.65  0x00001827    | VM state (end safepoint): not at safepoint
+ 10560                           44.65  0x00001826    | done 0x00001825
+ 10560                           44.65  0x00001825    | Evaluating VM operation: RevokeBias
+ 10560                           44.65  0x00001824    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.65  0x00001823    | VM state (begin safepoint): synchronizing
+ 10560                           44.65  0x00001822    Executing VM operation: RevokeBias
+ 10560                           44.65  0x00001821    done 0x0000181b
+ 10560                           44.65  0x00001820    | VM state (end safepoint): not at safepoint
+ 10560                           44.65  0x0000181f    | done 0x0000181e
+ 10560                           44.65  0x0000181e    | Evaluating VM operation: RevokeBias
+ 10560                           44.65  0x0000181d    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.65  0x0000181c    | VM state (begin safepoint): synchronizing
+ 10560                           44.65  0x0000181b    Executing VM operation: RevokeBias
+ 10560                           44.65  0x0000181a    done 0x00001814
+ 10560                           44.65  0x00001819    | VM state (end safepoint): not at safepoint
+ 10560                           44.65  0x00001818    | done 0x00001817
+ 10560                           44.64  0x00001817    | Evaluating VM operation: ParallelGCFailedAllocation
+ 10560                           44.64  0x00001816    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.64  0x00001815    | VM state (begin safepoint): synchronizing
+ 10560                           44.64  0x00001814    Executing VM operation: ParallelGCFailedAllocation
+ 12120                           44.63  0x00001813    Create nmethod 0x00000000038d82d0: 'java.lang.String.regionMatches(ZILjava/lang/String;II)Z' bci=-1
+ 13832                           44.63  0x00001812    Linked class 'org/eclipse/jdt/internal/junit/runner/FailedComparison'
+ 13832                           44.63  0x00001811    Started linking of class 'org/eclipse/jdt/internal/junit/runner/FailedComparison'
+ 13832                           44.63  0x00001810    Successfully defined class 'org/eclipse/jdt/internal/junit/runner/FailedComparison'
+ 13832                           44.63  0x0000180f    Defining class 'org/eclipse/jdt/internal/junit/runner/FailedComparison' with 1166 bytes
+ 13832                           44.63  0x0000180e    Create unroll information: #vframes=1 pc=0x0000000003857d4c sp=0x00000000031add60
+ 13832                           44.63  0x0000180d    DEOPT PACKING pc=0x0000000003857d4c sp=0x00000000031add60
+ 13832                           44.63  0x0000180c    Deoptimizing nmethod: 'java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;' pc=0x0000000003857d4c sp=0x00000000031add60
+ 10560                           44.63  0x0000180b    done 0x00001805
+ 10560                           44.63  0x0000180a    | VM state (end safepoint): not at safepoint
+ 10560                           44.63  0x00001809    | done 0x00001808
+ 10560                           44.63  0x00001808    | Evaluating VM operation: RevokeBias
+ 10560                           44.63  0x00001807    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.63  0x00001806    | VM state (begin safepoint): synchronizing
+ 10560                           44.63  0x00001805    Executing VM operation: RevokeBias
+ 13832                           44.63  0x00001804    Create unroll information: #vframes=1 pc=0x0000000003857f8c sp=0x00000000031adc90
+ 13832                           44.63  0x00001803    DEOPT PACKING pc=0x0000000003857f8c sp=0x00000000031adc90
+ 13832                           44.63  0x00001802    Deoptimizing nmethod: 'java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;' pc=0x0000000003857f8c sp=0x00000000031adc90
+ 10560                           44.63  0x00001801    done 0x000017fb
+ 10560                           44.63  0x00001800    | VM state (end safepoint): not at safepoint
+ 10560                           44.63  0x000017ff    | done 0x000017fe
+ 10560                           44.63  0x000017fe    | Evaluating VM operation: RevokeBias
+ 10560                           44.63  0x000017fd    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.63  0x000017fc    | VM state (begin safepoint): synchronizing
+ 10560                           44.63  0x000017fb    Executing VM operation: RevokeBias
+ 12120                           44.63  0x000017fa    done 0x000017f9
+ 12120                           44.63  0x000017f9    flushing nmethod 0x000000000382ed10 
+ 12120                           44.63  0x000017f8    done 0x000017f7
+ 12120                           44.63  0x000017f7    flushing nmethod 0x000000000382e990 
+ 12120                           44.63  0x000017f6    Create nmethod 0x00000000038cd390: 'java.net.URLStreamHandler.getDefaultPort()I' bci=-1
+ 13832                           44.63  0x000017f5    Linked class 'sun/reflect/UnsafeObjectFieldAccessorImpl'
+ 12120                           44.63  0x000017f4    | Create nmethod 0x00000000038cd690: 'java.lang.System.getSecurityManager()Ljava/lang/SecurityManager;' bci=-1
+ 13832                           44.63  0x000017f3    Started linking of class 'sun/reflect/UnsafeObjectFieldAccessorImpl'
+ 13832                           44.63  0x000017f2    Successfully defined class 'sun/reflect/UnsafeObjectFieldAccessorImpl'
+ 12120                           44.63  0x000017f1    | Create nmethod 0x00000000038cd990: 'sun.misc.URLClassPath.getLoader(I)Lsun/misc/URLClassPath$Loader;' bci=-1
+ 13832                           44.63  0x000017f0    Defining class 'sun/reflect/UnsafeObjectFieldAccessorImpl' with 4137 bytes
+ 13832                           44.63  0x000017ef    Linked class 'java/lang/StackTraceElement'
+ 13832                           44.63  0x000017ee    Started linking of class 'java/lang/StackTraceElement'
+ 13832                           44.63  0x000017ed    Linked class 'junit/framework/ComparisonCompactor'
+ 13832                           44.63  0x000017ec    Started linking of class 'junit/framework/ComparisonCompactor'
+ 13832                           44.63  0x000017eb    Successfully defined class 'junit/framework/ComparisonCompactor'
+ 13832                           44.63  0x000017ea    Defining class 'junit/framework/ComparisonCompactor' with 2629 bytes
+ 13832                           44.63  0x000017e9    Create unroll information: #vframes=1 pc=0x0000000003857d4c sp=0x00000000031ad980
+ 13832                           44.63  0x000017e8    DEOPT PACKING pc=0x0000000003857d4c sp=0x00000000031ad980
+ 13832                           44.63  0x000017e7    Deoptimizing nmethod: 'java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;' pc=0x0000000003857d4c sp=0x00000000031ad980
+ 10560                           44.63  0x000017e6    done 0x000017e0
+ 10560                           44.63  0x000017e5    | VM state (end safepoint): not at safepoint
+ 10560                           44.63  0x000017e4    | done 0x000017e3
+ 10560                           44.63  0x000017e3    | Evaluating VM operation: RevokeBias
+ 10560                           44.63  0x000017e2    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.63  0x000017e1    | VM state (begin safepoint): synchronizing
+ 10560                           44.63  0x000017e0    Executing VM operation: RevokeBias
+ 13832                           44.63  0x000017df    Create unroll information: #vframes=1 pc=0x0000000003857f8c sp=0x00000000031ad8b0
+ 13832                           44.63  0x000017de    DEOPT PACKING pc=0x0000000003857f8c sp=0x00000000031ad8b0
+ 13832                           44.63  0x000017dd    Deoptimizing nmethod: 'java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;' pc=0x0000000003857f8c sp=0x00000000031ad8b0
+ 10560                           44.63  0x000017dc    done 0x000017d6
+ 10560                           44.63  0x000017db    | VM state (end safepoint): not at safepoint
+ 10560                           44.63  0x000017da    | done 0x000017d9
+ 10560                           44.63  0x000017d9    | Evaluating VM operation: RevokeBias
+ 10560                           44.63  0x000017d8    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.63  0x000017d7    | VM state (begin safepoint): synchronizing
+ 10560                           44.63  0x000017d6    Executing VM operation: RevokeBias
+ 13832                           44.63  0x000017d5    Linked class 'java/util/IdentityHashMap$KeySet'
+ 13832                           44.63  0x000017d4    Started linking of class 'java/util/IdentityHashMap$KeySet'
+ 13832                           44.63  0x000017d3    Successfully defined class 'java/util/IdentityHashMap$KeySet'
+ 13832                           44.63  0x000017d2    Defining class 'java/util/IdentityHashMap$KeySet' with 3934 bytes
+ 13832                           44.63  0x000017d1    Linked class 'java/util/IdentityHashMap'
+ 13832                           44.63  0x000017d0    Started linking of class 'java/util/IdentityHashMap'
+ 13832                           44.63  0x000017cf    Successfully defined class 'java/util/IdentityHashMap'
+ 13832                           44.63  0x000017ce    Defining class 'java/util/IdentityHashMap' with 13247 bytes
+ 13832                           44.63  0x000017cd    Linked class 'java/lang/Throwable$WrappedPrintWriter'
+ 13832                           44.63  0x000017cc    | Linked class 'java/lang/Throwable$PrintStreamOrWriter'
+ 13832                           44.62  0x000017cb    | Started linking of class 'java/lang/Throwable$PrintStreamOrWriter'
+ 13832                           44.62  0x000017ca    Started linking of class 'java/lang/Throwable$WrappedPrintWriter'
+ 13832                           44.62  0x000017c9    Successfully defined class 'java/lang/Throwable$WrappedPrintWriter'
+ 13832                           44.62  0x000017c8    | Successfully defined class 'java/lang/Throwable$PrintStreamOrWriter'
+ 13832                           44.62  0x000017c7    | Defining class 'java/lang/Throwable$PrintStreamOrWriter' with 641 bytes
+ 13832                           44.62  0x000017c6    Defining class 'java/lang/Throwable$WrappedPrintWriter' with 869 bytes
+ 13832                           44.62  0x000017c5    Linked class 'java/io/StringWriter'
+ 13832                           44.62  0x000017c4    Started linking of class 'java/io/StringWriter'
+ 13832                           44.62  0x000017c3    Linked class 'org/eclipse/jdt/internal/junit/runner/TestReferenceFailure'
+ 13832                           44.62  0x000017c2    Started linking of class 'org/eclipse/jdt/internal/junit/runner/TestReferenceFailure'
+ 13832                           44.62  0x000017c1    Successfully defined class 'org/eclipse/jdt/internal/junit/runner/TestReferenceFailure'
+ 13832                           44.62  0x000017c0    Defining class 'org/eclipse/jdt/internal/junit/runner/TestReferenceFailure' with 2581 bytes
+ 12120                           44.62  0x000017bf    Create nmethod 0x00000000038d3410: 'java.util.ArrayList.get(I)Ljava/lang/Object;' bci=-1
+ 13832                           44.62  0x000017be    Create unroll information: #vframes=1 pc=0x0000000003857d4c sp=0x00000000031add70
+ 13832                           44.62  0x000017bd    DEOPT PACKING pc=0x0000000003857d4c sp=0x00000000031add70
+ 13832                           44.62  0x000017bc    Deoptimizing nmethod: 'java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;' pc=0x0000000003857d4c sp=0x00000000031add70
+ 10560                           44.62  0x000017bb    done 0x000017b5
+ 10560                           44.62  0x000017ba    | VM state (end safepoint): not at safepoint
+ 10560                           44.62  0x000017b9    | done 0x000017b8
+ 10560                           44.62  0x000017b8    | Evaluating VM operation: RevokeBias
+ 10560                           44.62  0x000017b7    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.62  0x000017b6    | VM state (begin safepoint): synchronizing
+ 10560                           44.62  0x000017b5    Executing VM operation: RevokeBias
+ 13832                           44.62  0x000017b4    Create unroll information: #vframes=1 pc=0x0000000003857f8c sp=0x00000000031adca0
+ 13832                           44.62  0x000017b3    DEOPT PACKING pc=0x0000000003857f8c sp=0x00000000031adca0
+ 13832                           44.62  0x000017b2    Deoptimizing nmethod: 'java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;' pc=0x0000000003857f8c sp=0x00000000031adca0
+ 10560                           44.62  0x000017b1    done 0x000017ab
+ 10560                           44.62  0x000017b0    | VM state (end safepoint): not at safepoint
+ 10560                           44.62  0x000017af    | done 0x000017ae
+ 10560                           44.62  0x000017ae    | Evaluating VM operation: RevokeBias
+ 10560                           44.62  0x000017ad    | VM state (begin safepoint): at standard safepoint
+ 10560                           44.62  0x000017ac    | VM state (begin safepoint): synchronizing
+ 10560                           44.62  0x000017ab    Executing VM operation: RevokeBias
+ 12120                           44.62  0x000017aa    Create nmethod 0x00000000037ef3d0: 'java.util.ArrayList.elementData(I)Ljava/lang/Object;' bci=-1
+ 13832                           44.62  0x000017a9    Linked class 'junit/framework/TestFailure'
+ 12120                           44.62  0x000017a8    | Create nmethod 0x00000000038d3bd0: 'java.util.ArrayList.rangeCheck(I)V' bci=-1
+ 13832                           44.62  0x000017a7    Started linking of class 'junit/framework/TestFailure'
+ 13832                           44.62  0x000017a6    Successfully defined class 'junit/framework/TestFailure'
+ 13832                           44.62  0x000017a5    Defining class 'junit/framework/TestFailure' with 1750 bytes
+ 13832                           44.62  0x000017a4    Create unroll information: #vframes=1 pc=0x00000000038c7770 sp=0x00000000031acdf0
+ 13832                           44.62  0x000017a3    DEOPT PACKING pc=0x00000000038c7770 sp=0x00000000031acdf0
+ 13832                           44.62  0x000017a2    Uncommon trap occurred at pc 0x00000000038c7770: trap_request='0xffffffffffffff65' reason='unstable_if' action='reinterpret' in method 'get'
+ 13832                           44.62  0x000017a1    Implicit null exception at pc 0x00000000038c759a: target_pc=0x00000000038c7761
+ 13832                           44.62  0x000017a0    Create unroll information: #vframes=1 pc=0x0000000003857d4c sp=0x00000000031ade60
